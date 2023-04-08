@@ -179,6 +179,5 @@ public class GamePanel extends JPanel implements Runnable
         Graphics2D g9 = (Graphics2D)g;
         player1.drawPlayer(g9);
         player2.drawPlayer(g9);
-        //
     }
 }
