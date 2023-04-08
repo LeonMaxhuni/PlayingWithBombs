@@ -1,0 +1,70 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
+public class MyMap {
+
+    public ArrayList<String> linelist = new ArrayList<String>();
+    public int width, height;
+
+    int blockSize = 64;
+
+    Image image1 = new ImageIcon("txt//Ground.png").getImage();
+    Image image2 = new ImageIcon("txt//Redblocks.png").getImage();
+    Image image3 = new ImageIcon("txt//Wall.png").getImage();
+
+    Image imageIcons[] = {image1, image2, image3};
+
+    MyMap() throws IOException{
+
+        File classic = new File("src//aaa.txt");
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(classic));
+
+        while (bufferedReader != null) {
+
+            String line = bufferedReader.readLine();
+
+            if (line == null) {
+                bufferedReader.close();
+                break;
+            }
+            if (!line.startsWith("#")) {
+                linelist.add(line);
+                width = Math.max(width, line.length());
+            }
+        }
+            height = linelist.size();
+    }
+    
+    void drawImage(Graphics2D g2) {
+
+        for(int y = 0; y < height ; y++) {
+            
+                String thisline = (String)linelist.get(y);
+
+            for(int x = 0; x < thisline.length(); x++) {
+
+                char chch = thisline.charAt(x);
+                if (chch == '1') {
+                    g2.drawImage(image1, getTrueXY(x), getTrueXY(y), blockSize, blockSize, null);
+                }
+                if (chch == '2') {
+                    g2.drawImage(image2, getTrueXY(x), getTrueXY(y), blockSize, blockSize, null);
+                }
+                if (chch == '3') {
+                    g2.drawImage(image3, getTrueXY(x), getTrueXY(y), blockSize, blockSize, null);
+                }
+            }
+        }
+    }
+
+    int getTrueXY(int x) {
+            int y = x * 64;
+        return y;
+    }
+}
