@@ -51,7 +51,7 @@ public class Objects {
             case 6:
             case 7:
                 player.decreaseHealth();
-                player.printHealth();
+                //player.printHealth();
                 break;
         }
     }

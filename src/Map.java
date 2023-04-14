@@ -23,6 +23,10 @@ public class Map
 
     File classic = new File("src//aaa.txt");
 
+    long closeTimer;
+    int closeX = 0;
+    int closeY = 1;
+
     Map() throws IOException
     {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(classic));
@@ -42,7 +46,8 @@ public class Map
                 width = Math.max(width, line.length());
             }
         }
-            height = lineList.size();
+        height = lineList.size();
+        closeTimer = System.currentTimeMillis() + 100000;
     }
     
     public void drawMap(Graphics2D g2)
@@ -84,8 +89,6 @@ public class Map
         String midTopLine = lineList.get(bombY-1);
         String midLine = lineList.get(bombY);
         String midBottomLine = lineList.get(bombY+1);
-
-        //hotizontalRemoval
 
         if (midLine.charAt(bombX-1) == '2')
         {
@@ -214,6 +217,47 @@ public class Map
                 }
             }
         }
+    }
+
+    void startClosingMap()
+    {
+        if(closeTimer < System.currentTimeMillis() && !(closeX == 2 && closeY == 3))
+        {
+            closeTimer = System.currentTimeMillis() + 800;
+            callSide();
+        }
+    }
+
+    void callSide()
+    {
+        if(closeX + 1 >= closeY && closeX + closeY < 14)
+        {
+            closeX++;
+            closeMap();
+        }
+        else if(closeX - 2 > closeY && closeX + closeY < 26)
+        {
+            closeY++;
+            closeMap();
+        }
+        else if(closeX + closeY > 12)
+        {
+            closeX--;
+            closeMap();
+        }
+        else if(closeX < closeY)
+        {
+            closeY--;
+            closeMap();
+        }
+    }
+
+    void closeMap()
+    {
+        String line = lineList.get(closeY);
+        line = line.substring(0, closeX) + '3' + line.substring(closeX + 1);
+        lineList.set(closeY, line);
+        System.out.println("------");
     }
 
     public Boolean[][] getCollisionInfo(Player player)

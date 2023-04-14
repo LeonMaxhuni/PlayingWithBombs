@@ -8,7 +8,8 @@ public class Bomb
 
     boolean state;
     int id;
-
+    
+    static int litTime = 2000;
     long explosionTimer;
 
     Image bombOrange = new ImageIcon("textures//bombOrange.png").getImage();
@@ -38,26 +39,29 @@ public class Bomb
 
     static void prepareBomb(Bomb bomb1, Bomb bomb2, Bomb bomb3, Player player, int[] activeBombsX, int[] activeBombsY)
     {
-        if(bomb1.state == false && Bomb.bombChecker(player, activeBombsX, activeBombsY) == true)
+        if(player.alive == true)
         {
-            bomb1.deployBomb(player.blockPlayerX(), player.blockPlayerY());
-            activeBombsX[0] = player.blockPlayerX();
-            activeBombsY[0] = player.blockPlayerY();
-            bomb1.explosionTimer = System.currentTimeMillis() + 1000;
-        }
-        else if(player.bombCount > 1 && bomb2.state == false && Bomb.bombChecker(player, activeBombsX, activeBombsY) == true)
-        {
-            bomb2.deployBomb(player.blockPlayerX(), player.blockPlayerY());
-            activeBombsX[1] = player.blockPlayerX();
-            activeBombsY[1] = player.blockPlayerY();
-            bomb2.explosionTimer = System.currentTimeMillis() + 1000;
-        }
-        else if(player.bombCount > 2 && bomb3.state == false && Bomb.bombChecker(player, activeBombsX, activeBombsY) == true)
-        {
-            bomb3.deployBomb(player.blockPlayerX(), player.blockPlayerY());
-            activeBombsX[2] = player.blockPlayerX();
-            activeBombsY[2] = player.blockPlayerY();
-            bomb3.explosionTimer = System.currentTimeMillis() + 1000;
+            if(bomb1.state == false && Bomb.bombChecker(player, activeBombsX, activeBombsY) == true)
+            {
+                bomb1.deployBomb(player.blockPlayerX(), player.blockPlayerY());
+                activeBombsX[0] = player.blockPlayerX();
+                activeBombsY[0] = player.blockPlayerY();
+                bomb1.explosionTimer = System.currentTimeMillis() + litTime;
+            }
+            else if(player.bombCount > 1 && bomb2.state == false && Bomb.bombChecker(player, activeBombsX, activeBombsY) == true)
+            {
+                bomb2.deployBomb(player.blockPlayerX(), player.blockPlayerY());
+                activeBombsX[1] = player.blockPlayerX();
+                activeBombsY[1] = player.blockPlayerY();
+                bomb2.explosionTimer = System.currentTimeMillis() + litTime;
+            }
+            else if(player.bombCount > 2 && bomb3.state == false && Bomb.bombChecker(player, activeBombsX, activeBombsY) == true)
+            {
+                bomb3.deployBomb(player.blockPlayerX(), player.blockPlayerY());
+                activeBombsX[2] = player.blockPlayerX();
+                activeBombsY[2] = player.blockPlayerY();
+                bomb3.explosionTimer = System.currentTimeMillis() + litTime;
+            }
         }
     }
 

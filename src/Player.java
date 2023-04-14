@@ -11,8 +11,8 @@ public class Player
     int number;
 
     int currentSpeed = 2;
-    int bombRange = 1;
-    int bombCount = 1;
+    int bombRange = 2;
+    int bombCount = 2;
     int health = 3;
     long healthCooldown = 0;
     boolean alive = true;
@@ -79,9 +79,9 @@ public class Player
         }
     }
 
-    void printHealth()
+    int getHealth()
     {
-        System.out.println(health);
+        return health;
     }
 
     int blockPlayerX()
