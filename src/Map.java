@@ -19,7 +19,7 @@ public class Map
     Image image2 = new ImageIcon("textures//differentwall3.png").getImage();
     Image image3 = new ImageIcon("textures//differentfloor3.png").getImage();
 
-    Image imageIcons[] = {image1, image2, image3};
+    Image imageTextures1[] = {image1, image2, image3};
 
     File classic = new File("src//aaa.txt");
 
@@ -54,24 +54,24 @@ public class Map
     {
         for(int y = 0; y < height ; y++)
         {
-            
+
             String thisline = lineList.get(y);
 
             for(int x = 0; x < thisline.length(); x++)
             {
                 char chch = thisline.charAt(x);
-                
+
                 if (chch == '1')
                 {
-                    g2.drawImage(image1, getTrueXY(x), getTrueXY(y), blockSize, blockSize, null);
+                    g2.drawImage(imageTextures1[0], getTrueXY(x), getTrueXY(y), blockSize, blockSize, null);
                 }
                 if (chch == '2')
                 {
-                    g2.drawImage(image2, getTrueXY(x), getTrueXY(y), blockSize, blockSize, null);
+                    g2.drawImage(imageTextures1[1], getTrueXY(x), getTrueXY(y), blockSize, blockSize, null);
                 }
                 if (chch == '3')
                 {
-                    g2.drawImage(image3, getTrueXY(x), getTrueXY(y), blockSize, blockSize, null);
+                    g2.drawImage(imageTextures1[2], getTrueXY(x), getTrueXY(y), blockSize, blockSize, null);
                 }
             }
         }

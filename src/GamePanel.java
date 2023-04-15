@@ -5,32 +5,32 @@ import java.awt.Graphics2D;
 
 public class GamePanel extends JPanel
 {
-    final short frameWidth = 960;
-    final short frameHeight = 832;
+    final short panelWidth = 960;
+    final short panelHeight = 832;
 
     final static byte blockSize = 64;
 
     Map myMap;
+
     Keybindings myBinds = new Keybindings();
-    boolean mapLoaded = false;
+
+    int[] activeBombsX = new int[8];
+    int[] activeBombsY = new int[8];
 
     Bomb bomb1[];
     Bomb bomb2[];
     Player player[];
 
-    int[] activeBombsX = new int[8];
-    int[] activeBombsY = new int[8];
-
-    public GamePanel(Player players[], Bomb player1Bombs[])
+    public GamePanel(Player player[], Bomb bomb1[], Map myMap)
     {
-        this.setBounds(0, 0, 960, 832);
+        this.setBounds(0, 0, panelWidth, panelHeight);
         this.setBackground(Color.GREEN);
         this.setVisible(true);
-        this.setOpaque(true);
         this.setFocusable(true);
         this.addKeyListener(myBinds);
-        this.player = players;
-        this.bomb1 = player1Bombs;
+        this.player = player;
+        this.bomb1 = bomb1;
+        this.myMap = myMap;
     }
 
     public void update()
@@ -83,24 +83,24 @@ public class GamePanel extends JPanel
         if(bomb1[0].state == true && System.currentTimeMillis() > bomb1[0].explosionTimer)
         {
             bomb1[0].explodeBomb(activeBombsX, activeBombsY, player[0].bombRange);
-            checkPlayersForObjects();
+            checkPlayersForObjects(player);
             player[0].collisionInfo = myMap.getCollisionInfo(player[0]);
         }
         if(bomb1[1].state == true && System.currentTimeMillis() > bomb1[1].explosionTimer)
         {
             bomb1[1].explodeBomb(activeBombsX, activeBombsY, player[0].bombRange);
-            checkPlayersForObjects();
+            checkPlayersForObjects(player);
             player[0].collisionInfo = myMap.getCollisionInfo(player[0]);
         }
         if(bomb1[2].state == true && System.currentTimeMillis() > bomb1[2].explosionTimer)
         {
             bomb1[2].explodeBomb(activeBombsX, activeBombsY, player[0].bombRange);
-            checkPlayersForObjects();
+            checkPlayersForObjects(player);
             player[0].collisionInfo = myMap.getCollisionInfo(player[0]);
         }
     }
 
-    public void checkPlayersForObjects()
+    public void checkPlayersForObjects(Player player[])
     {
         Objects.checkForObject(player[0]);
         Objects.checkForObject(player[1]);
@@ -109,17 +109,6 @@ public class GamePanel extends JPanel
     public void paintComponent(Graphics g)
     {
         super.paintComponent(g);
-
-        if (mapLoaded == false)
-        try
-        {
-            myMap = new Map();
-            mapLoaded = true;
-        }
-        catch (Exception e)
-        {
-            System.out.println("MAPPY");
-        }
 
         Graphics2D g2 = (Graphics2D)g;
         myMap.startClosingMap();
