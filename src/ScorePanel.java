@@ -12,9 +12,9 @@ public class ScorePanel extends JPanel
     Bomb bomb1[];
     Bomb bomb2[];
     Player player[];
-    Labels player1Label[][];
+    Labels player1Label[][][];
 
-    public ScorePanel(Player players[], Bomb player1Bombs[], Labels player1Label[][])
+    public ScorePanel(Player players[], Bomb player1Bombs[], Labels player1Label[][][])
     {
         this.setBounds(960, 0, 320, 832);
         this.setBackground(Color.BLUE);
@@ -24,11 +24,6 @@ public class ScorePanel extends JPanel
         this.player1Label = player1Label;
     }
 
-    public void update()
-    {
-        
-    }
-
     public void paintComponent(Graphics g)
     {
         super.paintComponent(g);
@@ -36,9 +31,12 @@ public class ScorePanel extends JPanel
         Graphics2D g2 = (Graphics2D)g;
         for(int i = 0; i < 3; i++)
         {
-            player1Label[0][i].drawLabels(g2, player[0].bombCount);
-            player1Label[1][i].drawLabels(g2, player[0].bombRange);
-            player1Label[2][i].drawLabels(g2, player[0].currentSpeed-1);
+            for(int y = 0; y < player1Label.length; y++)
+            {
+                player1Label[y][0][i].drawPowerups(g2, player[0].bombCount);
+                player1Label[y][1][i].drawPowerups(g2, player[0].bombRange);
+                player1Label[y][2][i].drawPowerups(g2, player[0].currentSpeed-1);
+            }
         }
     }
 }
