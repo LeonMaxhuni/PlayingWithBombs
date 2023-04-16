@@ -29,6 +29,7 @@ public class ScorePanel extends JPanel
         super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D)g;
+        
         for(int i = 0; i < 3; i++)
         {
             for(int y = 0; y < player.length; y++)
