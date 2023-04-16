@@ -30,4 +30,10 @@ public class Labels
         else
         g2.drawImage(count2Image, x, y, width, height, null);
     }
+
+
+    public void drawPowerups(Graphics2D g2)
+    {
+        g2.drawImage(count2Image, x, y, width, height, null);
+    }
 }
