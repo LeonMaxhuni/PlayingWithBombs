@@ -100,6 +100,11 @@ public class Map
             midLine = midLine.substring(0, bombX-2) + '1' + midLine.substring(bombX-1);
             Objects.addObject(bombX-2, bombY, 5);
         }
+        else if(bombRange > 2 && bombX > 2 && midLine.charAt(bombX-3) == '2' && midLine.charAt(bombX-2) == '1' && midLine.charAt(bombX-1) == '1')
+        {
+            midLine = midLine.substring(0, bombX-3) + '1' + midLine.substring(bombX-2);
+            Objects.addObject(bombX-3, bombY, 5);
+        }
 
         if (midLine.charAt(bombX+1) == '2')
         {
@@ -110,6 +115,11 @@ public class Map
         {
             midLine = midLine.substring(0, bombX+2) + '1' + midLine.substring(bombX+3);
             Objects.addObject(bombX+2, bombY, 5);
+        }
+        else if(bombRange > 2 && bombX < 12 && midLine.charAt(bombX+3) == '2' && midLine.charAt(bombX+2) == '1' && midLine.charAt(bombX+1) == '1')
+        {
+            midLine = midLine.substring(0, bombX+3) + '1' + midLine.substring(bombX+4);
+            Objects.addObject(bombX+3, bombY, 5);
         }
 
         lineList.set(bombY, midLine);
