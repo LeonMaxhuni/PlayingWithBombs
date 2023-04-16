@@ -23,14 +23,13 @@ public class Labels
         this.count = count;
     }
 
-    public void drawPowerups(Graphics2D g2, int condition)
+    public void drawPowerups(Graphics2D g2, int condition, boolean alive)
     {
-        if(count <= condition)
+        if(count <= condition && alive == true)
         g2.drawImage(countImage, x, y, width, height, null);
         else
-        g2.drawImage(count2Image, x, y, width, height, null);
+        drawPowerups(g2);
     }
-
 
     public void drawPowerups(Graphics2D g2)
     {

@@ -9,7 +9,6 @@ public class Player
     int Xspeed, Yspeed;
     int color;
     int number;
-
     int currentSpeed = 2;
     int bombRange = 1;
     int bombCount = 1;

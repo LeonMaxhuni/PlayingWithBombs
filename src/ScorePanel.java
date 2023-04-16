@@ -34,9 +34,9 @@ public class ScorePanel extends JPanel
         {
             for(int y = 0; y < player.length; y++)
             {
-                allPowerLabel[y][0][i].drawPowerups(g2, player[y].bombCount);
-                allPowerLabel[y][1][i].drawPowerups(g2, player[y].bombRange);
-                allPowerLabel[y][2][i].drawPowerups(g2, player[y].currentSpeed-1);
+                allPowerLabel[y][0][i].drawPowerups(g2, player[y].bombCount, player[y].alive);
+                allPowerLabel[y][1][i].drawPowerups(g2, player[y].bombRange, player[y].alive);
+                allPowerLabel[y][2][i].drawPowerups(g2, player[y].currentSpeed-1, player[y].alive);
             }
             for(int y = player.length; y < allPowerLabel.length; y++)
             {
