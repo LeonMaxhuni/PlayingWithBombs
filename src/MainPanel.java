@@ -51,7 +51,6 @@ public class MainPanel extends JPanel implements Runnable
             {
                 //gamePanel.update(players, player1Bombs);
                 gamePanel.update();
-                scorePanel.update();
                 gamePanel.repaint();
                 scorePanel.repaint();
                 delta--;

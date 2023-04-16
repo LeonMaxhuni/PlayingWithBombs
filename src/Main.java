@@ -50,7 +50,75 @@ public class Main extends JFrame
             new Labels(128, 128, 64, 64, 3, 2),
         };
 
+        Labels countLab2[] =
+        {
+            new Labels(0, 192, 64, 64, 1, 0),
+            new Labels(0, 256, 64, 64, 2, 0),
+            new Labels(0, 320, 64, 64, 3, 0)
+        };
+
+        Labels rangeLab2[] =
+        {
+            new Labels(64, 192, 64, 64, 1, 1),
+            new Labels(64, 256, 64, 64, 2, 1),
+            new Labels(64, 320, 64, 64, 3, 1)
+        };
+
+        Labels speedLab2[] =
+        {
+            new Labels(128, 192, 64, 64, 1, 2),
+            new Labels(128, 256, 64, 64, 2, 2),
+            new Labels(128, 320, 64, 64, 3, 2),
+        };
+
+        Labels countLab3[] =
+        {
+            new Labels(0, 384, 64, 64, 1, 0),
+            new Labels(0, 448, 64, 64, 2, 0),
+            new Labels(0, 512, 64, 64, 3, 0)
+        };
+
+        Labels rangeLab3[] =
+        {
+            new Labels(64, 384, 64, 64, 1, 1),
+            new Labels(64, 448, 64, 64, 2, 1),
+            new Labels(64, 512, 64, 64, 3, 1)
+        };
+
+        Labels speedLab3[] =
+        {
+            new Labels(128, 384, 64, 64, 1, 2),
+            new Labels(128, 448, 64, 64, 2, 2),
+            new Labels(128, 512, 64, 64, 3, 2),
+        };
+
+        Labels countLab4[] =
+        {
+            new Labels(0, 576, 64, 64, 1, 0),
+            new Labels(0, 640, 64, 64, 2, 0),
+            new Labels(0, 704, 64, 64, 3, 0)
+        };
+
+        Labels rangeLab4[] =
+        {
+            new Labels(64, 576, 64, 64, 1, 1),
+            new Labels(64, 640, 64, 64, 2, 1),
+            new Labels(64, 704, 64, 64, 3, 1)
+        };
+
+        Labels speedLab4[] =
+        {
+            new Labels(128, 576, 64, 64, 1, 2),
+            new Labels(128, 640, 64, 64, 2, 2),
+            new Labels(128, 704, 64, 64, 3, 2),
+        };
+
         Labels player1Labels[][] = {countLab1, rangeLab1, speedLab1};
+        Labels player2Labels[][] = {countLab2, rangeLab2, speedLab2};
+        Labels player3Labels[][] = {countLab3, rangeLab3, speedLab3};
+        Labels player4Labels[][] = {countLab4, rangeLab4, speedLab4};
+
+        Labels allPlayersPowerLabels[][][]={player1Labels, player2Labels, player3Labels, player4Labels};
 
         //Labels footLabel = new Labels(64, 64, 0);
         /*JLabel picLabel1 = new JLabel();
@@ -75,7 +143,7 @@ public class Main extends JFrame
         */
 
         GamePanel gamePanel = new GamePanel(allPlayers, player1Bombs, myMap);
-        ScorePanel scorePanel = new ScorePanel(allPlayers, player1Bombs, player1Labels);
+        ScorePanel scorePanel = new ScorePanel(allPlayers, player1Bombs, allPlayersPowerLabels);
 
         MainPanel mainPanel = new MainPanel(gamePanel, scorePanel, allPlayers, player1Bombs);
 
