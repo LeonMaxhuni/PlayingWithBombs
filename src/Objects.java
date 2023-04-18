@@ -38,7 +38,7 @@ public class Objects {
                 break;
             case 1:
                 removeObject(player.blockPlayerX(), player.blockPlayerY());
-                player.increaseSpeed();
+                player.increaseBombCount();
                 break;
             case 2:
                 removeObject(player.blockPlayerX(), player.blockPlayerY());
@@ -46,7 +46,7 @@ public class Objects {
                 break;
             case 3:
                 removeObject(player.blockPlayerX(), player.blockPlayerY());
-                player.increaseBombCount();
+                player.increaseSpeed();
                 break;
             case 4:
             case 5:
