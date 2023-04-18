@@ -10,7 +10,7 @@ public class Powerups {
     public static void generateRandomPowerup(int wallX, int wallY) {
 
         Random random = new Random();
-        int powerupNumber = random.nextInt(12);
+        int powerupNumber = random.nextInt(3);
 
         switch(powerupNumber)
         {

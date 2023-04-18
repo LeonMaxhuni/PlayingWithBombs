@@ -7,7 +7,9 @@ public class Objects {
     static int[][] objectLocation = new int[15][13];
     static long[][] objectTimer = new long[15][13];
 
-    static Image image4 = new ImageIcon("textures//differentstatic3.png").getImage();
+    static Image countImage = new ImageIcon("textures//countPowerup.png").getImage();
+    static Image rangeImage = new ImageIcon("textures//rangePowerup.png").getImage();
+    static Image bootImage = new ImageIcon("textures//bootPowerup.png").getImage();
     static Image image5 = new ImageIcon("textures//temp.png").getImage();
 
     Objects()
@@ -64,15 +66,15 @@ public class Objects {
             {
                 if(objectLocation[i][j] == 1)
                 {
-                    g2.drawImage(image4, Map.getTrueXY(i), Map.getTrueXY(j), GamePanel.blockSize, GamePanel.blockSize, null);
+                    g2.drawImage(countImage, Map.getTrueXY(i), Map.getTrueXY(j), GamePanel.blockSize, GamePanel.blockSize, null);
                 }
                 if(objectLocation[i][j] == 2)
                 {
-                    g2.drawImage(image4, Map.getTrueXY(i), Map.getTrueXY(j), GamePanel.blockSize, GamePanel.blockSize, null);
+                    g2.drawImage(rangeImage, Map.getTrueXY(i), Map.getTrueXY(j), GamePanel.blockSize, GamePanel.blockSize, null);
                 }
                 if(objectLocation[i][j] == 3)
                 {
-                    g2.drawImage(image4, Map.getTrueXY(i), Map.getTrueXY(j), GamePanel.blockSize, GamePanel.blockSize, null);
+                    g2.drawImage(bootImage, Map.getTrueXY(i), Map.getTrueXY(j), GamePanel.blockSize, GamePanel.blockSize, null);
                 }
                 if(objectLocation[i][j] == 4 || objectLocation[i][j] == 5)
                 {
