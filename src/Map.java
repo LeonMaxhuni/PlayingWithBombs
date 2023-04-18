@@ -267,7 +267,6 @@ public class Map
         String line = lineList.get(closeY);
         line = line.substring(0, closeX) + '3' + line.substring(closeX + 1);
         lineList.set(closeY, line);
-        System.out.println("------");
     }
 
     public Boolean[][] getCollisionInfo(Player player)
