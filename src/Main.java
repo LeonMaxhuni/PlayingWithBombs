@@ -20,7 +20,7 @@ public class Main extends JFrame
 
         Map myMap = new Map();
 
-        Player player1 = new Player(14, 2, 0, 1);
+        Player player1 = new Player(2, 2, 0, 1);
         Player player2 = new Player(14, 12, 1, 2);
         Player allPlayers[] = {player1,player2};
 
