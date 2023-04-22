@@ -120,8 +120,6 @@ public class Main extends JFrame
 
         Labels allPlayersPowerLabels[][][]={player1Labels, player2Labels, player3Labels, player4Labels};
 
-
-
         GamePanel gamePanel = new GamePanel(allPlayers, player1Bombs, myMap);
         ScorePanel scorePanel = new ScorePanel(allPlayers, player1Bombs, allPlayersPowerLabels);
 
