@@ -16,8 +16,8 @@ public class Map
     int blockSize = 64;
 
     Image image1 = new ImageIcon("textures//viceCityGround.png").getImage();
-    Image image2 = new ImageIcon("textures//viceCityWall.png").getImage();
-    Image image3 = new ImageIcon("textures//viceCityStatic.png").getImage();
+    Image image2 = new ImageIcon("textures//viceCityWall2.png").getImage();
+    Image image3 = new ImageIcon("textures//viceCityStatic2.png").getImage();
 
     Image imageTextures1[] = {image1, image2, image3};
 
