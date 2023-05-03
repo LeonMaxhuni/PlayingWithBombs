@@ -4,7 +4,8 @@ import java.awt.event.KeyListener;
 public class Keybindings implements KeyListener
 {
     
-    public boolean A, W, S, D, Q;
+    boolean goLeft, goRight, goUp, goDown, placeBomb;
+    boolean[] binds1 = {goLeft, goRight, goUp, goDown, placeBomb};
 
     @Override
     public void keyTyped(KeyEvent e) {}
@@ -17,23 +18,23 @@ public class Keybindings implements KeyListener
 
         if(code == KeyEvent.VK_A)
         {
-            A = true;
-        }
-        if(code == KeyEvent.VK_W)
-        {
-            W = true;
-        }
-        if(code == KeyEvent.VK_S)
-        {
-            S = true;
+            binds1[0] = true;
         }
         if(code == KeyEvent.VK_D)
         {
-            D = true;
+            binds1[1] = true;
+        }
+        if(code == KeyEvent.VK_W)
+        {
+            binds1[2] = true;
+        }
+        if(code == KeyEvent.VK_S)
+        {
+            binds1[3] = true;
         }
         if(code == KeyEvent.VK_Q)
         {
-            Q = true;
+            binds1[4] = true;
         }
     }
 
@@ -45,23 +46,23 @@ public class Keybindings implements KeyListener
 
         if(code == KeyEvent.VK_A)
         {
-            A = false;
-        }
-        if(code == KeyEvent.VK_W)
-        {
-            W = false;
-        }
-        if(code == KeyEvent.VK_S)
-        {
-            S = false;
+            binds1[0] = false;
         }
         if(code == KeyEvent.VK_D)
         {
-            D = false;
+            binds1[1] = false;
+        }
+        if(code == KeyEvent.VK_W)
+        {
+            binds1[2] = false;
+        }
+        if(code == KeyEvent.VK_S)
+        {
+            binds1[3] = false;
         }
         if(code == KeyEvent.VK_Q)
         {
-            Q = false;
+            binds1[4] = false;
         }
     }
 }

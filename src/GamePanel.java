@@ -2,6 +2,7 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+//import java.security.Key;
 
 public class GamePanel extends JPanel
 {
@@ -11,8 +12,7 @@ public class GamePanel extends JPanel
     final static byte blockSize = 64;
 
     Map myMap;
-
-    Keybindings myBinds = new Keybindings();
+    Keybindings myBinds;
 
     int[] activeBombsX = new int[8];
     int[] activeBombsY = new int[8];
@@ -21,7 +21,7 @@ public class GamePanel extends JPanel
     Bomb bomb2[];
     Player player[];
 
-    public GamePanel(Player player[], Bomb bomb1[], Map myMap)
+    public GamePanel(Player player[], Bomb bomb1[], Map myMap, Keybindings myBinds)
     {
         this.setBounds(0, 0, panelWidth, panelHeight);
         this.setBackground(Color.GREEN);
@@ -31,53 +31,16 @@ public class GamePanel extends JPanel
         this.player = player;
         this.bomb1 = bomb1;
         this.myMap = myMap;
+        this.myBinds = myBinds;
     }
 
     public void update()
     {
-        if(myBinds.A == true)
+        //System.out.println(myBinds.binds1[2]);
+        for(int i = 0; i < 1; i++)
         {
-            if(player[0].playerBlockXChanged(player[0].blockPlayerX()))
-            {
-                player[0].collisionInfo = myMap.getCollisionInfo(player[0]);
-                Objects.checkForObject(player[0]);
-            }
-            CollisionDetection.checkDetectionLeft(player[0]);
-            player[0].playerX -= player[0].Xspeed;
-        }
-        if(myBinds.W == true)
-        {
-            if(player[0].playerBlockYChanged(player[0].blockPlayerY()))
-            {
-                player[0].collisionInfo = myMap.getCollisionInfo(player[0]);
-                Objects.checkForObject(player[0]);
-            }
-            CollisionDetection.checkDetectionTop(player[0]);
-            player[0].playerY -= player[0].Yspeed;
-        }
-        if(myBinds.S == true)
-        {
-            if(player[0].playerBlockYChanged(player[0].blockPlayerY()))
-            {
-                player[0].collisionInfo = myMap.getCollisionInfo(player[0]);
-                Objects.checkForObject(player[0]);
-            }
-            CollisionDetection.checkDetectionBottom(player[0]);
-            player[0].playerY += player[0].Yspeed;
-        }
-        if(myBinds.D == true)
-        {
-            if(player[0].playerBlockXChanged(player[0].blockPlayerX()))
-            {
-                player[0].collisionInfo = myMap.getCollisionInfo(player[0]);
-                Objects.checkForObject(player[0]);
-            }
-            CollisionDetection.checkDetectionRight(player[0]);
-            player[0].playerX += player[0].Xspeed;
-        }
-        if(myBinds.Q == true)
-        {
-            Bomb.prepareBomb(bomb1[0], bomb1[1], bomb1[2], player[0], activeBombsX, activeBombsY);
+            player[i].movePlayer(myMap);
+            player[i].placeBomb(bomb1, activeBombsX, activeBombsY);
         }
 
         if(bomb1[0].state == true && System.currentTimeMillis() > bomb1[0].explosionTimer)

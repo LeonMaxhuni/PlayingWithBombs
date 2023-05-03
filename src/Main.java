@@ -19,8 +19,9 @@ public class Main extends JFrame
         myFrame.setIconImage(gameIcon.getImage());
 
         Map myMap = new Map();
+        Keybindings myBinds = new Keybindings();
 
-        Player player1 = new Player(2, 2, 0, 1);
+        Player player1 = new Player(2, 2, 0, 1, myBinds.binds1);
         Player player2 = new Player(14, 12, 1, 2);
         Player allPlayers[] = {player1,player2};
 
@@ -120,7 +121,7 @@ public class Main extends JFrame
 
         Labels allPlayersPowerLabels[][][]={player1Labels, player2Labels, player3Labels, player4Labels};
 
-        GamePanel gamePanel = new GamePanel(allPlayers, player1Bombs, myMap);
+        GamePanel gamePanel = new GamePanel(allPlayers, player1Bombs, myMap, myBinds);
         ScorePanel scorePanel = new ScorePanel(allPlayers, player1Bombs, allPlayersPowerLabels);
 
         MainPanel mainPanel = new MainPanel(gamePanel, scorePanel, allPlayers, player1Bombs);
