@@ -42,7 +42,6 @@ public class CollisionDetection
           )
         {
             player.Xspeed = 0;
-            System.out.println("1");
         }
         else if
           (
@@ -53,12 +52,10 @@ public class CollisionDetection
         {
             player.playerX = player.playerX - (player.playerX % 4) + 4;
             player.Xspeed = 0;
-            System.out.println("2");
         }
         else
         {
             player.Xspeed = player.currentSpeed;
-            System.out.println("3");
         }
     }
 
