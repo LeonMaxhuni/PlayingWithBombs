@@ -17,6 +17,7 @@ public class Player
     int health = 3;
     long healthCooldown = 0;
     boolean alive = true;
+    int direction;
 
     boolean[] binds;
 
@@ -25,7 +26,7 @@ public class Player
     Image playerLeft = new ImageIcon("textures//botPurpleLeft.png").getImage();
     Image playerRight = new ImageIcon("textures//botPurpleRight.png").getImage();
 
-    Image[] playersSides = {playerLeft, playerRight, playerUp, playerRight};
+    Image[] playersSides = {playerLeft, playerRight, playerUp, playerDown};
 
     Player(int blockX, int blockY, int color, int number)
     {
@@ -35,6 +36,7 @@ public class Player
         this.blockPrevY = 10000;
         this.color = color;
         this.number = number;
+        this.direction = 3;
     }
 
     Player(int blockX, int blockY, int color, int number, boolean binds[])
@@ -46,6 +48,7 @@ public class Player
         this.color = color;
         this.number = number;
         this.binds = binds;
+        this.direction = 3;
     }
 
     int getX()
@@ -144,26 +147,6 @@ public class Player
 
     void movePlayer(Map myMap)
     {
-        if(binds[0] == true)
-        {
-            if(playerBlockXChanged())
-            {
-                collisionInfo = myMap.getCollisionInfo(this);
-                Objects.checkForObject(this);
-            }
-            CollisionDetection.checkDetectionLeft(this);
-            playerX -= Xspeed;
-        }
-        if(binds[1] == true)
-        {
-            if(playerBlockXChanged())
-            {
-                collisionInfo = myMap.getCollisionInfo(this);
-                Objects.checkForObject(this);
-            }
-            CollisionDetection.checkDetectionRight(this);
-            playerX += Xspeed;
-        }
         if(binds[2] == true)
         {
             if(playerBlockYChanged())
@@ -173,6 +156,7 @@ public class Player
             }
             CollisionDetection.checkDetectionTop(this);
             playerY -= Yspeed;
+            direction = 2;
         }
         if(binds[3] == true)
         {
@@ -183,6 +167,33 @@ public class Player
             }
             CollisionDetection.checkDetectionBottom(this);
             playerY += Yspeed;
+            direction = 3;
+        }
+        if(binds[0] == true)
+        {
+            if(playerBlockXChanged())
+            {
+                collisionInfo = myMap.getCollisionInfo(this);
+                Objects.checkForObject(this);
+            }
+            CollisionDetection.checkDetectionLeft(this);
+            playerX -= Xspeed;
+            direction = 0;
+        }
+        if(binds[1] == true)
+        {
+            if(playerBlockXChanged())
+            {
+                collisionInfo = myMap.getCollisionInfo(this);
+                Objects.checkForObject(this);
+            }
+            CollisionDetection.checkDetectionRight(this);
+            playerX += Xspeed;
+            direction = 1;
+        }
+        if(binds[0] == true && binds[1] == true)
+        {
+            direction = 3;
         }
     }
 
