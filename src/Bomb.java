@@ -80,6 +80,16 @@ public class Bomb
         activeBombsY[this.id] = 10000 + id;
     }
 
+    void checkToRemove(Player player, int[] activeBombsX, int[] activeBombsY, Objects myObjects, Map myMap)
+    {
+        if(state == true && System.currentTimeMillis() > explosionTimer)
+        {
+            explodeBomb(activeBombsX, activeBombsY, player.bombRange);
+            myObjects.checkPlayersForObjects();
+            player.collisionInfo = myMap.getCollisionInfo(player);
+        }
+    }
+
     static boolean bombChecker(Player player, int[] activeBombsX, int[] activeBombsY)
     {
         for(int i = 0; i < activeBombsX.length; i++)

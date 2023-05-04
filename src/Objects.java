@@ -3,6 +3,8 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class Objects {
+
+    Player[] allPlayers;
     
     static int[][] objectLocation = new int[15][13];
     static long[][] objectTimer = new long[15][13];
@@ -12,9 +14,17 @@ public class Objects {
     static Image bootImage = new ImageIcon("textures//bootPowerup.png").getImage();
     static Image image5 = new ImageIcon("textures//temp.png").getImage();
 
-    Objects()
+    Objects(Player[] allPlayers)
     {
+        this.allPlayers = allPlayers;
+    }
 
+    public void checkPlayersForObjects()
+    {
+        for(int i = 0; i < allPlayers.length; i++)
+        {
+            checkForObject(allPlayers[i]);
+        }
     }
 
     public static void addObject(int objX, int objY, int objectNumber)

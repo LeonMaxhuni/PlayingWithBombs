@@ -11,6 +11,7 @@ public class GamePanel extends JPanel
 
     final static byte blockSize = 64;
 
+    Objects myObjects;
     Map myMap;
     Keybindings myBinds;
 
@@ -21,7 +22,7 @@ public class GamePanel extends JPanel
     Bomb bomb2[];
     Player player[];
 
-    public GamePanel(Player player[], Bomb bomb1[], Map myMap, Keybindings myBinds)
+    public GamePanel(Player player[], Bomb bomb1[], Objects myObjects ,Map myMap, Keybindings myBinds)
     {
         this.setBounds(0, 0, panelWidth, panelHeight);
         this.setBackground(Color.GREEN);
@@ -30,6 +31,7 @@ public class GamePanel extends JPanel
         this.addKeyListener(myBinds);
         this.player = player;
         this.bomb1 = bomb1;
+        this.myObjects = myObjects;
         this.myMap = myMap;
         this.myBinds = myBinds;
     }
@@ -42,31 +44,9 @@ public class GamePanel extends JPanel
             player[i].movePlayer(myMap);
             player[i].placeBomb(bomb1, activeBombsX, activeBombsY);
         }
-
-        if(bomb1[0].state == true && System.currentTimeMillis() > bomb1[0].explosionTimer)
-        {
-            bomb1[0].explodeBomb(activeBombsX, activeBombsY, player[0].bombRange);
-            checkPlayersForObjects(player);
-            player[0].collisionInfo = myMap.getCollisionInfo(player[0]);
-        }
-        if(bomb1[1].state == true && System.currentTimeMillis() > bomb1[1].explosionTimer)
-        {
-            bomb1[1].explodeBomb(activeBombsX, activeBombsY, player[0].bombRange);
-            checkPlayersForObjects(player);
-            player[0].collisionInfo = myMap.getCollisionInfo(player[0]);
-        }
-        if(bomb1[2].state == true && System.currentTimeMillis() > bomb1[2].explosionTimer)
-        {
-            bomb1[2].explodeBomb(activeBombsX, activeBombsY, player[0].bombRange);
-            checkPlayersForObjects(player);
-            player[0].collisionInfo = myMap.getCollisionInfo(player[0]);
-        }
-    }
-
-    public void checkPlayersForObjects(Player player[])
-    {
-        Objects.checkForObject(player[0]);
-        Objects.checkForObject(player[1]);
+        bomb1[0].checkToRemove(player[0], activeBombsX, activeBombsY, myObjects ,myMap);
+        bomb1[1].checkToRemove(player[0], activeBombsX, activeBombsY, myObjects ,myMap);
+        bomb1[2].checkToRemove(player[0], activeBombsX, activeBombsY, myObjects ,myMap);
     }
 
     public void paintComponent(Graphics g)

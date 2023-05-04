@@ -115,7 +115,7 @@ public class Player
         return (playerY + 32)/64;
     }
 
-    boolean playerBlockXChanged(int blockPlayerX)
+    boolean playerBlockXChanged()
     {
         if(blockPrevX != blockPlayerX())
         {
@@ -125,7 +125,7 @@ public class Player
         return false;
     }
 
-    boolean playerBlockYChanged(int blockPlayerY)
+    boolean playerBlockYChanged()
     {
         if(blockPrevY != blockPlayerY())
         {
@@ -146,43 +146,43 @@ public class Player
     {
         if(binds[0] == true)
         {
-            if(this.playerBlockXChanged(this.blockPlayerX()))
+            if(playerBlockXChanged())
             {
-                this.collisionInfo = myMap.getCollisionInfo(this);
+                collisionInfo = myMap.getCollisionInfo(this);
                 Objects.checkForObject(this);
             }
             CollisionDetection.checkDetectionLeft(this);
-            this.playerX -= this.Xspeed;
+            playerX -= Xspeed;
         }
         if(binds[1] == true)
         {
-            if(this.playerBlockXChanged(this.blockPlayerX()))
+            if(playerBlockXChanged())
             {
-                this.collisionInfo = myMap.getCollisionInfo(this);
+                collisionInfo = myMap.getCollisionInfo(this);
                 Objects.checkForObject(this);
             }
             CollisionDetection.checkDetectionRight(this);
-            this.playerX += this.Xspeed;
+            playerX += Xspeed;
         }
         if(binds[2] == true)
         {
-            if(this.playerBlockYChanged(this.blockPlayerY()))
+            if(playerBlockYChanged())
             {
-                this.collisionInfo = myMap.getCollisionInfo(this);
+                collisionInfo = myMap.getCollisionInfo(this);
                 Objects.checkForObject(this);
             }
             CollisionDetection.checkDetectionTop(this);
-            this.playerY -= this.Yspeed;
+            playerY -= Yspeed;
         }
         if(binds[3] == true)
         {
-            if(this.playerBlockYChanged(this.blockPlayerY()))
+            if(playerBlockYChanged())
             {
-                this.collisionInfo = myMap.getCollisionInfo(this);
+                collisionInfo = myMap.getCollisionInfo(this);
                 Objects.checkForObject(this);
             }
             CollisionDetection.checkDetectionBottom(this);
-            this.playerY += this.Yspeed;
+            playerY += Yspeed;
         }
     }
 
@@ -192,15 +192,6 @@ public class Player
         {
             Bomb.prepareBomb(bomb1[0], bomb1[1], bomb1[2], this, activeBombsX, activeBombsY);
         }
-    }
-
-    int getDirection()
-    {
-        if(binds[0] == true)
-        {
-            return 0;
-        }
-        return 1;
     }
 
     void drawPlayer(Graphics2D g9)

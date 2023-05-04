@@ -30,6 +30,8 @@ public class Main extends JFrame
         Bomb bomb3 = new Bomb(player1.color, 2);
         Bomb player1Bombs[] = {bomb1, bomb2, bomb3};
 
+        Objects myObjects = new Objects(allPlayers);
+
         Labels countLab1[] =
         {
             new Labels(0, 0, 64, 64, 1, 0),
@@ -121,7 +123,7 @@ public class Main extends JFrame
 
         Labels allPlayersPowerLabels[][][]={player1Labels, player2Labels, player3Labels, player4Labels};
 
-        GamePanel gamePanel = new GamePanel(allPlayers, player1Bombs, myMap, myBinds);
+        GamePanel gamePanel = new GamePanel(allPlayers, player1Bombs, myObjects ,myMap, myBinds);
         ScorePanel scorePanel = new ScorePanel(allPlayers, player1Bombs, allPlayersPowerLabels);
 
         MainPanel mainPanel = new MainPanel(gamePanel, scorePanel, allPlayers, player1Bombs);
