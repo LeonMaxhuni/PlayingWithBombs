@@ -25,6 +25,8 @@ public class Player
     Image playerLeft = new ImageIcon("textures//botPurpleLeft.png").getImage();
     Image playerRight = new ImageIcon("textures//botPurpleRight.png").getImage();
 
+    Image[] playersSides = {playerLeft, playerRight, playerUp, playerRight};
+
     Player(int blockX, int blockY, int color, int number)
     {
         this.playerX = (blockX-1)*64;
@@ -192,11 +194,20 @@ public class Player
         }
     }
 
+    int getDirection()
+    {
+        if(binds[0] == true)
+        {
+            return 0;
+        }
+        return 1;
+    }
+
     void drawPlayer(Graphics2D g9)
     {
         if(alive == true)
         {
-            g9.drawImage(playerDown, this.getX(), this.getY(), GamePanel.blockSize, GamePanel.blockSize, null);
+            g9.drawImage(playersSides[0], this.getX(), this.getY(), GamePanel.blockSize, GamePanel.blockSize, null);
             //g9.setColor(Color.RED);
             //g9.fillRect(this.getX(),this.getY(),GamePanel.blockSize,GamePanel.blockSize);
             if(health == 0)
