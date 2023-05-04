@@ -22,7 +22,7 @@ public class GamePanel extends JPanel
     Bomb bomb2[];
     Player player[];
 
-    public GamePanel(Player player[], Bomb bomb1[], Objects myObjects ,Map myMap, Keybindings myBinds)
+    public GamePanel(Player player[], Bomb bomb1[], Objects myObjects , Map myMap, Keybindings myBinds)
     {
         this.setBounds(0, 0, panelWidth, panelHeight);
         this.setBackground(Color.GREEN);
