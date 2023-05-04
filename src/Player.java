@@ -147,6 +147,7 @@ public class Player
 
     void movePlayer(Map myMap)
     {
+        direction = 3;
         if(binds[2] == true)
         {
             if(playerBlockYChanged())
@@ -209,7 +210,7 @@ public class Player
     {
         if(alive == true)
         {
-            g9.drawImage(playersSides[0], this.getX(), this.getY(), GamePanel.blockSize, GamePanel.blockSize, null);
+            g9.drawImage(playersSides[direction], this.getX(), this.getY(), GamePanel.blockSize, GamePanel.blockSize, null);
             //g9.setColor(Color.RED);
             //g9.fillRect(this.getX(),this.getY(),GamePanel.blockSize,GamePanel.blockSize);
             if(health == 0)
