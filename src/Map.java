@@ -106,6 +106,21 @@ public class Map
             midLine = midLine.substring(0, bombX-3) + '1' + midLine.substring(bombX-2);
             Objects.addObject(bombX-3, bombY, 5);
         }
+        else if(bombRange > 3 && bombX > 3 && midLine.charAt(bombX-4) == '2' && midLine.charAt(bombX-3) == '1' && midLine.charAt(bombX-2) == '1' && midLine.charAt(bombX-1) == '1')
+        {
+            midLine = midLine.substring(0, bombX-4) + '1' + midLine.substring(bombX-3);
+            Objects.addObject(bombX-4, bombY, 5);
+        }
+        else if(bombRange > 4 && bombX > 4 && midLine.charAt(bombX-5) == '2' && midLine.charAt(bombX-4) == '1' && midLine.charAt(bombX-3) == '1' && midLine.charAt(bombX-2) == '1' && midLine.charAt(bombX-1) == '1')
+        {
+            midLine = midLine.substring(0, bombX-5) + '1' + midLine.substring(bombX-4);
+            Objects.addObject(bombX-5, bombY, 5);
+        }
+        else if(bombRange > 5 && bombX > 5 && midLine.charAt(bombX-6) == '2' && midLine.charAt(bombX-5) == '1' && midLine.charAt(bombX-4) == '1' && midLine.charAt(bombX-3) == '1' && midLine.charAt(bombX-2) == '1' && midLine.charAt(bombX-1) == '1')
+        {
+            midLine = midLine.substring(0, bombX-6) + '1' + midLine.substring(bombX-5);
+            Objects.addObject(bombX-6, bombY, 5);
+        }
 
         if (midLine.charAt(bombX+1) == '2')
         {
@@ -121,6 +136,21 @@ public class Map
         {
             midLine = midLine.substring(0, bombX+3) + '1' + midLine.substring(bombX+4);
             Objects.addObject(bombX+3, bombY, 5);
+        }
+        else if(bombRange > 3 && bombX < 11 && midLine.charAt(bombX+4) == '2' && midLine.charAt(bombX+3) == '1' && midLine.charAt(bombX+2) == '1' && midLine.charAt(bombX+1) == '1')
+        {
+            midLine = midLine.substring(0, bombX+4) + '1' + midLine.substring(bombX+5);
+            Objects.addObject(bombX+4, bombY, 5);
+        }
+        else if(bombRange > 4 && bombX < 10 && midLine.charAt(bombX+5) == '2' && midLine.charAt(bombX+4) == '1' && midLine.charAt(bombX+3) == '1' && midLine.charAt(bombX+2) == '1' && midLine.charAt(bombX+1) == '1')
+        {
+            midLine = midLine.substring(0, bombX+5) + '1' + midLine.substring(bombX+6);
+            Objects.addObject(bombX+5, bombY, 5);
+        }
+        else if(bombRange > 5 && bombX < 9 && midLine.charAt(bombX+6) == '2' && midLine.charAt(bombX+5) == '1' && midLine.charAt(bombX+4) == '1' && midLine.charAt(bombX+3) == '1' && midLine.charAt(bombX+2) == '1' && midLine.charAt(bombX+1) == '1')
+        {
+            midLine = midLine.substring(0, bombX+6) + '1' + midLine.substring(bombX+7);
+            Objects.addObject(bombX+5, bombY, 6);
         }
 
         lineList.set(bombY, midLine);

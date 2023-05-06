@@ -71,7 +71,7 @@ public class Player
 
     void increaseBombRange()
     {
-        if(this.bombRange < 3)
+        if(this.bombRange < 6)
         {
             this.bombRange++;
         }
