@@ -48,6 +48,7 @@ public class Map
         }
         height = lineList.size();
         closeTimer = System.currentTimeMillis() + 100000;
+        Powerups.generateRandomPowerup(7, 6, true);
     }
     
     public void drawMap(Graphics2D g2)
