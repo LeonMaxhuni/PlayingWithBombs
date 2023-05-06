@@ -21,7 +21,7 @@ public class Main extends JFrame
         Map myMap = new Map();
         Keybindings myBinds = new Keybindings();
 
-        Player player1 = new Player(2, 2, 0, 1, myBinds.binds1);
+        Player player1 = new Player(14, 12, 0, 1, myBinds.binds1);
         Player player2 = new Player(14, 12, 1, 2);
         Player allPlayers[] = {player1,player2};
 

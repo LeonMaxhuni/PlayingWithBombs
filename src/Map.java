@@ -202,13 +202,23 @@ public class Map
         {
             Objects.addObject(bombX-1, bombY, 4);
 
-            if(bombRange > 1 && midLine.charAt(bombX-2) == '1')
+            if(Objects.getObject(bombX-1, bombY) == 5)
             {
+
+            }
+            else if(bombRange > 1 && midLine.charAt(bombX-2) == '1')
+            {
+
                 Objects.addObject(bombX-2, bombY, 4);
 
-                if(bombRange > 2 && midLine.charAt(bombX-3) == '1')
+                if(Objects.getObject(bombX-2, bombY) == 5)
+                {
+
+                }
+                else if(bombRange > 2 && midLine.charAt(bombX-3) == '1')
                 {
                     Objects.addObject(bombX-3, bombY, 4);
+
                 }
             }
         }
@@ -217,11 +227,19 @@ public class Map
         {
             Objects.addObject(bombX+1, bombY, 4);
 
-            if(bombRange > 1 && midLine.charAt(bombX+2) == '1')
+            if(Objects.getObject(bombX+1, bombY) == 5)
+            {
+
+            }
+            else if(bombRange > 1 && midLine.charAt(bombX+2) == '1')
             {
                 Objects.addObject(bombX+2, bombY, 4);
 
-                if(bombRange > 2 && midLine.charAt(bombX+3) == '1')
+                if(Objects.getObject(bombX+2, bombY) == 5)
+                {
+
+                }
+                else if(bombRange > 2 && midLine.charAt(bombX+3) == '1')
                 {
                     Objects.addObject(bombX+3, bombY, 4);
                 }
@@ -239,13 +257,23 @@ public class Map
             if(bombY > 1 && bombRange > 1)
             {
                 String topLine = lineList.get(bombY-2);
-                if(topLine.charAt(bombX) == '1')
+
+                if(Objects.getObject(bombX, bombY-1) == 5)
+                {
+
+                }
+                else if(topLine.charAt(bombX) == '1')
                 {
                     Objects.addObject(bombX, bombY-2, 4);
 
                     if(bombY > 2 && bombRange > 2)
                     {
                         String topTopline = lineList.get(bombY-3);
+
+                        if(Objects.getObject(bombX, bombY-2) == 5)
+                        {
+
+                        }
                         if(topTopline.charAt(bombX) == '1')
                         {
                             Objects.addObject(bombX, bombY-3, 4);
@@ -263,14 +291,23 @@ public class Map
             {
                 String bottomLine = lineList.get(bombY+2);
 
-                if(bottomLine.charAt(bombX) == '1')
+                if(Objects.getObject(bombX, bombY+1) == 5)
+                {
+
+                }
+                else if(bottomLine.charAt(bombX) == '1')
                 {
                     Objects.addObject(bombX, bombY+2, 4);
 
                     if(bombY < 10 && bombRange > 2)
                     {
                         String botBottomline = lineList.get(bombY+3);
-                        if(botBottomline.charAt(bombX) == '1')
+
+                        if(Objects.getObject(bombX, bombY+2) == 5)
+                        {
+
+                        }
+                        else if(botBottomline.charAt(bombX) == '1')
                         {
                             Objects.addObject(bombX, bombY+3, 4);
                         }

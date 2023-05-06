@@ -40,6 +40,11 @@ public class Objects {
         objectLocation[objX][objY] = 0;
     }
 
+    public static int getObject(int x, int y)
+    {
+        return objectLocation[x][y];
+    }
+
     public static void checkForObject(Player player)
     {
         switch(objectLocation[player.blockPlayerX()][player.blockPlayerY()])
