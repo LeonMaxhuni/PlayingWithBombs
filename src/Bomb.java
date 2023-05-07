@@ -37,7 +37,7 @@ public class Bomb
         this.id = id;
     }
 
-    static void prepareBomb(Bomb bomb1, Bomb bomb2, Bomb bomb3, Player player, int[] activeBombsX, int[] activeBombsY)
+    static void prepareBomb(Bomb bomb1, Bomb bomb2, Bomb bomb3, Bomb bomb4, Bomb bomb5, Bomb bomb6, Player player, int[] activeBombsX, int[] activeBombsY)
     {
         if(player.alive == true)
         {
@@ -61,6 +61,27 @@ public class Bomb
                 activeBombsX[2] = player.blockPlayerX();
                 activeBombsY[2] = player.blockPlayerY();
                 bomb3.explosionTimer = System.currentTimeMillis() + litTime;
+            }
+            else if(player.bombCount > 3 && bomb4.state == false && Bomb.bombChecker(player, activeBombsX, activeBombsY) == true)
+            {
+                bomb4.deployBomb(player.blockPlayerX(), player.blockPlayerY());
+                activeBombsX[3] = player.blockPlayerX();
+                activeBombsY[3] = player.blockPlayerY();
+                bomb4.explosionTimer = System.currentTimeMillis() + litTime;
+            }
+            else if(player.bombCount > 4 && bomb5.state == false && Bomb.bombChecker(player, activeBombsX, activeBombsY) == true)
+            {
+                bomb5.deployBomb(player.blockPlayerX(), player.blockPlayerY());
+                activeBombsX[4] = player.blockPlayerX();
+                activeBombsY[4] = player.blockPlayerY();
+                bomb5.explosionTimer = System.currentTimeMillis() + litTime;
+            }
+            else if(player.bombCount > 5 && bomb6.state == false && Bomb.bombChecker(player, activeBombsX, activeBombsY) == true)
+            {
+                bomb6.deployBomb(player.blockPlayerX(), player.blockPlayerY());
+                activeBombsX[5] = player.blockPlayerX();
+                activeBombsY[5] = player.blockPlayerY();
+                bomb6.explosionTimer = System.currentTimeMillis() + litTime;
             }
         }
     }
@@ -106,8 +127,8 @@ public class Bomb
     {
         if(state == true)
         {
-            g2.drawImage(dynamites[id], Map.getTrueXY(this.bombX), Map.getTrueXY(this.bombY), GamePanel.blockSize, GamePanel.blockSize, null);
-            g2.drawImage(dynamiteGlows[id], Map.getTrueXY(this.bombX), Map.getTrueXY(this.bombY), GamePanel.blockSize, GamePanel.blockSize, null);
+            g2.drawImage(dynamites[1], Map.getTrueXY(this.bombX), Map.getTrueXY(this.bombY), GamePanel.blockSize, GamePanel.blockSize, null);
+            g2.drawImage(dynamiteGlows[1], Map.getTrueXY(this.bombX), Map.getTrueXY(this.bombY), GamePanel.blockSize, GamePanel.blockSize, null);
         }
     }
 }

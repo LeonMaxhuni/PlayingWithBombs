@@ -15,8 +15,8 @@ public class GamePanel extends JPanel
     Map myMap;
     Keybindings myBinds;
 
-    int[] activeBombsX = new int[8];
-    int[] activeBombsY = new int[8];
+    int[] activeBombsX = new int[12];
+    int[] activeBombsY = new int[12];
 
     Bomb bomb1[];
     Bomb bomb2[];
@@ -44,9 +44,12 @@ public class GamePanel extends JPanel
             player[i].movePlayer(myMap);
             player[i].placeBomb(bomb1, activeBombsX, activeBombsY);
         }
-        bomb1[0].checkToRemove(player[0], activeBombsX, activeBombsY, myObjects ,myMap);
-        bomb1[1].checkToRemove(player[0], activeBombsX, activeBombsY, myObjects ,myMap);
-        bomb1[2].checkToRemove(player[0], activeBombsX, activeBombsY, myObjects ,myMap);
+        bomb1[0].checkToRemove(player[0], activeBombsX, activeBombsY, myObjects, myMap);
+        bomb1[1].checkToRemove(player[0], activeBombsX, activeBombsY, myObjects, myMap);
+        bomb1[2].checkToRemove(player[0], activeBombsX, activeBombsY, myObjects, myMap);
+        bomb1[3].checkToRemove(player[0], activeBombsX, activeBombsY, myObjects, myMap);
+        bomb1[4].checkToRemove(player[0], activeBombsX, activeBombsY, myObjects, myMap);
+        bomb1[5].checkToRemove(player[0], activeBombsX, activeBombsY, myObjects, myMap);
     }
 
     public void paintComponent(Graphics g)
@@ -62,6 +65,9 @@ public class GamePanel extends JPanel
         bomb1[0].drawBomb(g3);
         bomb1[1].drawBomb(g3);
         bomb1[2].drawBomb(g3);
+        bomb1[3].drawBomb(g3);
+        bomb1[4].drawBomb(g3);
+        bomb1[5].drawBomb(g3);
 
         Graphics2D g9 = (Graphics2D)g;
         player[0].drawPlayer(g9);

@@ -13,7 +13,7 @@ public class Player
     int number;
     int currentSpeed = 2;
     int bombRange = 1;
-    int bombCount = 1;
+    int bombCount = 6;
     int health = 3;
     long healthCooldown = 0;
     boolean alive = true;
@@ -79,7 +79,7 @@ public class Player
 
     void increaseBombCount()
     {
-        if(this.bombCount < 3)
+        if(this.bombCount < 6)
         {
             this.bombCount++;
         }
@@ -202,7 +202,7 @@ public class Player
     {
         if(binds[4] == true)
         {
-            Bomb.prepareBomb(bomb1[0], bomb1[1], bomb1[2], this, activeBombsX, activeBombsY);
+            Bomb.prepareBomb(bomb1[0], bomb1[1], bomb1[2], bomb1[3], bomb1[4], bomb1[5], this, activeBombsX, activeBombsY);
         }
     }
 
