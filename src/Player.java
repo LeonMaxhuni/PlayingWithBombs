@@ -1,4 +1,3 @@
-//import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -63,7 +62,7 @@ public class Player
 
     void increaseSpeed()
     {
-        if(this.currentSpeed < 4)
+        if(this.currentSpeed < 3)
         {
             this.currentSpeed++;
         }
@@ -71,7 +70,7 @@ public class Player
 
     void increaseBombRange()
     {
-        if(this.bombRange < 6)
+        if(this.bombRange < 4)
         {
             this.bombRange++;
         }
@@ -79,7 +78,7 @@ public class Player
 
     void increaseBombCount()
     {
-        if(this.bombCount < 6)
+        if(this.bombCount < 4)
         {
             this.bombCount++;
         }

@@ -71,9 +71,9 @@ public class CollisionDetection
         }
         else if
           (
-            (player.collisionInfo[1][0] == true && player.playerY+20 < player.blockPlayerY()*64) ||
-            (player.collisionInfo[0][0] == true && player.playerY+20 < player.blockPlayerY()*64 && player.playerX+8 < player.blockPlayerX()*64) ||
-            (player.collisionInfo[2][0] == true && player.playerY+20 < player.blockPlayerY()*64 && player.playerX+56 > player.blockPlayerX()*64+64)
+            (player.collisionInfo[1][0] == true && player.playerY+12 < player.blockPlayerY()*64) ||
+            (player.collisionInfo[0][0] == true && player.playerY+12 < player.blockPlayerY()*64 && player.playerX+8 < player.blockPlayerX()*64) ||
+            (player.collisionInfo[2][0] == true && player.playerY+12 < player.blockPlayerY()*64 && player.playerX+56 > player.blockPlayerX()*64+64)
           )
         {
             player.playerY = player.playerY - (player.playerY % 4);
