@@ -150,7 +150,7 @@ public class Map
         else if(bombRange > 5 && bombX < 9 && midLine.charAt(bombX+6) == '2' && midLine.charAt(bombX+5) == '1' && midLine.charAt(bombX+4) == '1' && midLine.charAt(bombX+3) == '1' && midLine.charAt(bombX+2) == '1' && midLine.charAt(bombX+1) == '1')
         {
             midLine = midLine.substring(0, bombX+6) + '1' + midLine.substring(bombX+7);
-            Objects.addObject(bombX+5, bombY, 6);
+            Objects.addObject(bombX+6, bombY, 5);
         }
 
         lineList.set(bombY, midLine);
@@ -245,7 +245,7 @@ public class Map
                     lineList.set(bombY+3, thirdBottomLine);
                     Objects.addObject(bombX, bombY+3, 5);
                 }
-                else if(bombRange > 3 && bombY > 9)
+                else if(bombRange > 3 && bombY < 9)
                 {
                     String fourthBottomLine = lineList.get(bombY+4);
 
@@ -255,25 +255,25 @@ public class Map
                         lineList.set(bombY+4, fourthBottomLine);
                         Objects.addObject(bombX, bombY+4, 5);
                     }
-                    else if(bombRange > 4 && bombY > 8)
+                    else if(bombRange > 4 && bombY < 8)
                     {
-                        String fifthTopLine = lineList.get(bombY-5);
+                        String fifthBottomLine = lineList.get(bombY+5);
 
-                        if(fifthTopLine.charAt(bombX) == '2' && fourthTopLine.charAt(bombX) == '1' && thirdTopLine.charAt(bombX) == '1' && topLine.charAt(bombX) == '1' && midTopLine.charAt(bombX) == '1')
+                        if(fifthBottomLine.charAt(bombX) == '2' && fourthBottomLine.charAt(bombX) == '1' && thirdBottomLine.charAt(bombX) == '1' && bottomLine.charAt(bombX) == '1' && midBottomLine.charAt(bombX) == '1')
                         {
-                            fifthTopLine = fifthTopLine.substring(0, bombX) + '1' + fifthTopLine.substring(bombX+1);
-                            lineList.set(bombY-5, fifthTopLine);
-                            Objects.addObject(bombX, bombY-5, 5);
+                            fifthBottomLine = fifthBottomLine.substring(0, bombX) + '1' + fifthBottomLine.substring(bombX+1);
+                            lineList.set(bombY+5, fifthBottomLine);
+                            Objects.addObject(bombX, bombY+5, 5);
                         }
-                        else if(bombRange > 5 && bombY > 7)
+                        else if(bombRange > 5 && bombY < 7)
                         {
-                            String sixthTopLine = lineList.get(bombY-6);
+                            String sixthBottomLine = lineList.get(bombY+6);
 
-                            if(sixthTopLine.charAt(bombX) == '2' && fifthTopLine.charAt(bombX) == '1' && fourthTopLine.charAt(bombX) == '1' && thirdTopLine.charAt(bombX) == '1' && topLine.charAt(bombX) == '1' && midTopLine.charAt(bombX) == '1')
+                            if(sixthBottomLine.charAt(bombX) == '2' && fifthBottomLine.charAt(bombX) == '1' && fourthBottomLine.charAt(bombX) == '1' && thirdBottomLine.charAt(bombX) == '1' && bottomLine.charAt(bombX) == '1' && midBottomLine.charAt(bombX) == '1')
                             {
-                                sixthTopLine = sixthTopLine.substring(0, bombX) + '1' + sixthTopLine.substring(bombX+1);
-                                lineList.set(bombY-6, sixthTopLine);
-                                Objects.addObject(bombX, bombY-6, 5);
+                                sixthBottomLine = sixthBottomLine.substring(0, bombX) + '1' + sixthBottomLine.substring(bombX+1);
+                                lineList.set(bombY+6, sixthBottomLine);
+                                Objects.addObject(bombX, bombY+6, 5);
                             }
                         }
                     }
@@ -315,11 +315,37 @@ public class Map
                 {
                     Objects.addObject(bombX-3, bombY, 4);
 
+                    if(Objects.getObject(bombX-3, bombY) == 5)
+                    {
+
+                    }
+                    else if(bombRange > 3 && midLine.charAt(bombX-4) == '1')
+                    {
+                        Objects.addObject(bombX-4, bombY, 4);
+
+                        if(Objects.getObject(bombX-4, bombY) == 5)
+                        {
+
+                        }
+                        else if(bombRange > 4 && midLine.charAt(bombX-5) == '1')
+                        {
+                            Objects.addObject(bombX-5, bombY, 4);
+
+                            if(Objects.getObject(bombX-5, bombY) == 5)
+                            {
+
+                            }
+                            else if(bombRange > 5 && midLine.charAt(bombX-6) == '1')
+                            {
+                                Objects.addObject(bombX-6, bombY, 4);
+                            }
+                        }
+                    }
                 }
             }
         }
 
-        if (midLine.charAt(bombX+1) == '1')
+        if(midLine.charAt(bombX+1) == '1')
         {
             Objects.addObject(bombX+1, bombY, 4);
 
@@ -338,6 +364,33 @@ public class Map
                 else if(bombRange > 2 && midLine.charAt(bombX+3) == '1')
                 {
                     Objects.addObject(bombX+3, bombY, 4);
+
+                    if(Objects.getObject(bombX+3, bombY) == 5)
+                    {
+
+                    }
+                    else if(bombRange > 3 && midLine.charAt(bombX+4) == '1')
+                    {
+                        Objects.addObject(bombX+4, bombY, 4);
+
+                        if(Objects.getObject(bombX+4, bombY) == 5)
+                        {
+
+                        }
+                        else if(bombRange > 4 && midLine.charAt(bombX+5) == '1')
+                        {
+                            Objects.addObject(bombX+5, bombY, 4);
+
+                            if(Objects.getObject(bombX+5, bombY) == 5)
+                            {
+
+                            }
+                            else if(bombRange > 5 && midLine.charAt(bombX+6) == '1')
+                            {
+                                Objects.addObject(bombX+6, bombY, 4);
+                            }
+                        }
+                    }
                 }
             }
         }
