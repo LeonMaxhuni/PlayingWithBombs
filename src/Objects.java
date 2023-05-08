@@ -8,6 +8,7 @@ public class Objects {
     
     static int[][] objectLocation = new int[15][13];
     static long[][] objectTimer = new long[15][13];
+    static long smokeTime = 1200;
 
     static Image countImage = new ImageIcon("textures//countPowerup.png").getImage();
     static Image rangeImage = new ImageIcon("textures//rangePowerup.png").getImage();
@@ -94,7 +95,7 @@ public class Objects {
                 if(objectLocation[i][j] == 4 || objectLocation[i][j] == 5)
                 {
                     objectLocation[i][j] += 2;
-                    objectTimer[i][j] = System.currentTimeMillis()+2000;
+                    objectTimer[i][j] = System.currentTimeMillis() + smokeTime;
                 }
                 if(objectLocation[i][j] == 6 || objectLocation[i][j] == 7)
                 {

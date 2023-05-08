@@ -11,7 +11,7 @@ public class Player
     int color;
     int number;
     int currentSpeed = 2;
-    int bombRange = 1;
+    int bombRange = 5;
     int bombCount = 1;
     int health = 3;
     long healthCooldown = 0;
