@@ -492,15 +492,57 @@ public class Map
 
                     if(bombY < 10 && bombRange > 2)
                     {
-                        String botBottomline = lineList.get(bombY+3);
+                        String thirdBottomline = lineList.get(bombY+3);
 
                         if(Objects.getObject(bombX, bombY+2) == 5)
                         {
 
                         }
-                        else if(botBottomline.charAt(bombX) == '1')
+                        else if(thirdBottomline.charAt(bombX) == '1')
                         {
                             Objects.addObject(bombX, bombY+3, 4);
+
+                            if(bombY < 9 && bombRange > 3)
+                            {
+                                String fourthBottomLine = lineList.get(bombY+4);
+
+                                if(Objects.getObject(bombX, bombY+3) == 5)
+                                {
+
+                                }
+                                else if(fourthBottomLine.charAt(bombX) == '1')
+                                {
+                                    Objects.addObject(bombX, bombY+4, 4);
+
+                                    if(bombY < 8 && bombRange > 4)
+                                    {
+                                        String fifthBottomLine = lineList.get(bombY+5);
+
+                                        if(Objects.getObject(bombX, bombY+4) == 5)
+                                        {
+
+                                        }
+                                        else if(fifthBottomLine.charAt(bombX) == '1')
+                                        {
+                                            Objects.addObject(bombX, bombY+5, 4);
+
+                                            if(bombY < 7 && bombRange > 5)
+                                            {
+                                                String sixthBottomLine = lineList.get(bombY+6);
+
+                                                if(Objects.getObject(bombX, bombY+5) == 5)
+                                                {
+
+                                                }
+                                                else if(sixthBottomLine.charAt(bombX) == '1')
+                                                {
+                                                    Objects.addObject(bombX, bombY+6, 4);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
