@@ -7,6 +7,9 @@ public class Keybindings implements KeyListener
     boolean goLeft, goRight, goUp, goDown, placeBomb;
     boolean[] binds1 = {goLeft, goRight, goUp, goDown, placeBomb};
 
+    boolean goLeft2, goRight2, goUp2, goDown2, placeBomb2;
+    boolean[] binds2 = {goLeft, goRight, goUp, goDown, placeBomb};
+
     @Override
     public void keyTyped(KeyEvent e) {}
 
@@ -36,6 +39,27 @@ public class Keybindings implements KeyListener
         {
             binds1[4] = true;
         }
+
+        if(code == KeyEvent.VK_LEFT)
+        {
+            binds2[0] = true;
+        }
+        if(code == KeyEvent.VK_RIGHT)
+        {
+            binds2[1] = true;
+        }
+        if(code == KeyEvent.VK_UP)
+        {
+            binds2[2] = true;
+        }
+        if(code == KeyEvent.VK_DOWN)
+        {
+            binds2[3] = true;
+        }
+        if(code == KeyEvent.VK_SPACE)
+        {
+            binds2[4] = true;
+        }
     }
 
     @Override
@@ -63,6 +87,27 @@ public class Keybindings implements KeyListener
         if(code == KeyEvent.VK_Q)
         {
             binds1[4] = false;
+        }
+
+        if(code == KeyEvent.VK_LEFT)
+        {
+            binds2[0] = false;
+        }
+        if(code == KeyEvent.VK_RIGHT)
+        {
+            binds2[1] = false;
+        }
+        if(code == KeyEvent.VK_UP)
+        {
+            binds2[2] = false;
+        }
+        if(code == KeyEvent.VK_DOWN)
+        {
+            binds2[3] = false;
+        }
+        if(code == KeyEvent.VK_SPACE)
+        {
+            binds2[4] = false;
         }
     }
 }

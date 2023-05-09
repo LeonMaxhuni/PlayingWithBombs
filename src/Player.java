@@ -10,11 +10,11 @@ public class Player
     int Xspeed, Yspeed;
     int color;
     int number;
-    int currentSpeed = 2;
-    int bombRange = 6;
+    int currentSpeed = 3;
+    int bombRange = 1;
     int bombCount = 1;
     int health = 3;
-    long healthCooldown = 0;
+    long healthCooldown = 1000;
     boolean alive = true;
     int direction;
 

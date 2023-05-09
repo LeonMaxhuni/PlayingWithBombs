@@ -39,7 +39,7 @@ public class GamePanel extends JPanel
     public void update()
     {
         //System.out.println(myBinds.binds1[2]);
-        for(int i = 0; i < 1; i++)
+        for(int i = 0; i < 2; i++)
         {
             player[i].movePlayer(myMap);
             player[i].placeBomb(bomb1, activeBombsX, activeBombsY);
