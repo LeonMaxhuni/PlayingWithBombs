@@ -84,7 +84,7 @@ public class Map
         return y;
     }
 
-    public static void destroyWalls(int bombX, int bombY, int bombRange, int playerColor)
+    public static void destroyWalls(int bombX, int bombY, int bombRange, int bombColor)
     {
 
         String midTopLine = lineList.get(bombY-1);
@@ -94,63 +94,63 @@ public class Map
         if (midLine.charAt(bombX-1) == '2')
         {
             midLine = midLine.substring(0, bombX-1) + '1' + midLine.substring(bombX);
-            Objects.addObject(bombX-1, bombY, 5, 1, playerColor);
+            Objects.addObject(bombX-1, bombY, 5, 1, bombColor);
         }
         else if(bombRange > 1 && bombX > 1 && midLine.charAt(bombX-2) == '2' && midLine.charAt(bombX-1) == '1')
         {
             midLine = midLine.substring(0, bombX-2) + '1' + midLine.substring(bombX-1);
-            Objects.addObject(bombX-2, bombY, 5, 1, playerColor);
+            Objects.addObject(bombX-2, bombY, 5, 1, bombColor);
         }
         else if(bombRange > 2 && bombX > 2 && midLine.charAt(bombX-3) == '2' && midLine.charAt(bombX-2) == '1' && midLine.charAt(bombX-1) == '1')
         {
             midLine = midLine.substring(0, bombX-3) + '1' + midLine.substring(bombX-2);
-            Objects.addObject(bombX-3, bombY, 5, 1, playerColor);
+            Objects.addObject(bombX-3, bombY, 5, 1, bombColor);
         }
         else if(bombRange > 3 && bombX > 3 && midLine.charAt(bombX-4) == '2' && midLine.charAt(bombX-3) == '1' && midLine.charAt(bombX-2) == '1' && midLine.charAt(bombX-1) == '1')
         {
             midLine = midLine.substring(0, bombX-4) + '1' + midLine.substring(bombX-3);
-            Objects.addObject(bombX-4, bombY, 5, 1, playerColor);
+            Objects.addObject(bombX-4, bombY, 5, 1, bombColor);
         }
         else if(bombRange > 4 && bombX > 4 && midLine.charAt(bombX-5) == '2' && midLine.charAt(bombX-4) == '1' && midLine.charAt(bombX-3) == '1' && midLine.charAt(bombX-2) == '1' && midLine.charAt(bombX-1) == '1')
         {
             midLine = midLine.substring(0, bombX-5) + '1' + midLine.substring(bombX-4);
-            Objects.addObject(bombX-5, bombY, 5, 1, playerColor);
+            Objects.addObject(bombX-5, bombY, 5, 1, bombColor);
         }
         else if(bombRange > 5 && bombX > 5 && midLine.charAt(bombX-6) == '2' && midLine.charAt(bombX-5) == '1' && midLine.charAt(bombX-4) == '1' && midLine.charAt(bombX-3) == '1' && midLine.charAt(bombX-2) == '1' && midLine.charAt(bombX-1) == '1')
         {
             midLine = midLine.substring(0, bombX-6) + '1' + midLine.substring(bombX-5);
-            Objects.addObject(bombX-6, bombY, 5, 1, playerColor);
+            Objects.addObject(bombX-6, bombY, 5, 1, bombColor);
         }
 
         if (midLine.charAt(bombX+1) == '2')
         {
             midLine = midLine.substring(0, bombX+1) + '1' + midLine.substring(bombX+2);
-            Objects.addObject(bombX+1, bombY, 5, 1, playerColor);
+            Objects.addObject(bombX+1, bombY, 5, 1, bombColor);
         }
         else if(bombRange > 1 && bombX < 13 && midLine.charAt(bombX+2) == '2' && midLine.charAt(bombX+1) == '1')
         {
             midLine = midLine.substring(0, bombX+2) + '1' + midLine.substring(bombX+3);
-            Objects.addObject(bombX+2, bombY, 5, 1, playerColor);
+            Objects.addObject(bombX+2, bombY, 5, 1, bombColor);
         }
         else if(bombRange > 2 && bombX < 12 && midLine.charAt(bombX+3) == '2' && midLine.charAt(bombX+2) == '1' && midLine.charAt(bombX+1) == '1')
         {
             midLine = midLine.substring(0, bombX+3) + '1' + midLine.substring(bombX+4);
-            Objects.addObject(bombX+3, bombY, 5, 1, playerColor);
+            Objects.addObject(bombX+3, bombY, 5, 1, bombColor);
         }
         else if(bombRange > 3 && bombX < 11 && midLine.charAt(bombX+4) == '2' && midLine.charAt(bombX+3) == '1' && midLine.charAt(bombX+2) == '1' && midLine.charAt(bombX+1) == '1')
         {
             midLine = midLine.substring(0, bombX+4) + '1' + midLine.substring(bombX+5);
-            Objects.addObject(bombX+4, bombY, 5, 1, playerColor);
+            Objects.addObject(bombX+4, bombY, 5, 1, bombColor);
         }
         else if(bombRange > 4 && bombX < 10 && midLine.charAt(bombX+5) == '2' && midLine.charAt(bombX+4) == '1' && midLine.charAt(bombX+3) == '1' && midLine.charAt(bombX+2) == '1' && midLine.charAt(bombX+1) == '1')
         {
             midLine = midLine.substring(0, bombX+5) + '1' + midLine.substring(bombX+6);
-            Objects.addObject(bombX+5, bombY, 5, 1, playerColor);
+            Objects.addObject(bombX+5, bombY, 5, 1, bombColor);
         }
         else if(bombRange > 5 && bombX < 9 && midLine.charAt(bombX+6) == '2' && midLine.charAt(bombX+5) == '1' && midLine.charAt(bombX+4) == '1' && midLine.charAt(bombX+3) == '1' && midLine.charAt(bombX+2) == '1' && midLine.charAt(bombX+1) == '1')
         {
             midLine = midLine.substring(0, bombX+6) + '1' + midLine.substring(bombX+7);
-            Objects.addObject(bombX+6, bombY, 5, 1, playerColor);
+            Objects.addObject(bombX+6, bombY, 5, 1, bombColor);
         }
 
         lineList.set(bombY, midLine);
@@ -161,7 +161,7 @@ public class Map
         {
             midTopLine = midTopLine.substring(0,bombX) + '1' + midTopLine.substring(bombX+1);
             lineList.set(bombY-1, midTopLine);
-            Objects.addObject(bombX, bombY-1, 5, 2, playerColor);
+            Objects.addObject(bombX, bombY-1, 5, 2, bombColor);
         }
         else if(bombRange > 1 && bombY > 1)
         {
@@ -171,7 +171,7 @@ public class Map
             {
                 topLine = topLine.substring(0, bombX) + '1' + topLine.substring(bombX+1);
                 lineList.set(bombY-2, topLine);
-                Objects.addObject(bombX, bombY-2, 5, 2, playerColor);
+                Objects.addObject(bombX, bombY-2, 5, 2, bombColor);
             }
             else if(bombRange > 2 && bombY > 2)
             {
@@ -181,7 +181,7 @@ public class Map
                 {
                     thirdTopLine = thirdTopLine.substring(0, bombX) + '1' + thirdTopLine.substring(bombX+1);
                     lineList.set(bombY-3, thirdTopLine);
-                    Objects.addObject(bombX, bombY-3, 5, 2, playerColor);
+                    Objects.addObject(bombX, bombY-3, 5, 2, bombColor);
                 }
                 else if(bombRange > 3 && bombY > 3)
                 {
@@ -191,7 +191,7 @@ public class Map
                     {
                         fourthTopLine = fourthTopLine.substring(0, bombX) + '1' + fourthTopLine.substring(bombX+1);
                         lineList.set(bombY-4, fourthTopLine);
-                        Objects.addObject(bombX, bombY-4, 5, 2, playerColor);
+                        Objects.addObject(bombX, bombY-4, 5, 2, bombColor);
                     }
                     else if(bombRange > 4 && bombY > 4)
                     {
@@ -201,7 +201,7 @@ public class Map
                         {
                             fifthTopLine = fifthTopLine.substring(0, bombX) + '1' + fifthTopLine.substring(bombX+1);
                             lineList.set(bombY-5, fifthTopLine);
-                            Objects.addObject(bombX, bombY-5, 5, 2, playerColor);
+                            Objects.addObject(bombX, bombY-5, 5, 2, bombColor);
                         }
                         else if(bombRange > 5 && bombY > 5)
                         {
@@ -211,7 +211,7 @@ public class Map
                             {
                                 sixthTopLine = sixthTopLine.substring(0, bombX) + '1' + sixthTopLine.substring(bombX+1);
                                 lineList.set(bombY-6, sixthTopLine);
-                                Objects.addObject(bombX, bombY-6, 5, 2, playerColor);
+                                Objects.addObject(bombX, bombY-6, 5, 2, bombColor);
                             }
                         }
                     }
@@ -223,7 +223,7 @@ public class Map
         {
             midBottomLine = midBottomLine.substring(0,bombX) + '1' + midBottomLine.substring(bombX+1);
             lineList.set(bombY+1, midBottomLine);
-            Objects.addObject(bombX, bombY+1, 5, 2, playerColor);
+            Objects.addObject(bombX, bombY+1, 5, 2, bombColor);
         }
         else if(bombRange > 1 && bombY < 11)
         {
@@ -233,7 +233,7 @@ public class Map
             {
                 bottomLine = bottomLine.substring(0, bombX) + '1' + bottomLine.substring(bombX+1);
                 lineList.set(bombY+2, bottomLine);
-                Objects.addObject(bombX, bombY+2, 5, 2, playerColor);
+                Objects.addObject(bombX, bombY+2, 5, 2, bombColor);
             }
             else if(bombRange > 2 && bombY < 10)
             {
@@ -243,7 +243,7 @@ public class Map
                 {
                     thirdBottomLine = thirdBottomLine.substring(0, bombX) + '1' + thirdBottomLine.substring(bombX+1);
                     lineList.set(bombY+3, thirdBottomLine);
-                    Objects.addObject(bombX, bombY+3, 5, 2, playerColor);
+                    Objects.addObject(bombX, bombY+3, 5, 2, bombColor);
                 }
                 else if(bombRange > 3 && bombY < 9)
                 {
@@ -253,7 +253,7 @@ public class Map
                     {
                         fourthBottomLine = fourthBottomLine.substring(0, bombX) + '1' + fourthBottomLine.substring(bombX+1);
                         lineList.set(bombY+4, fourthBottomLine);
-                        Objects.addObject(bombX, bombY+4, 5, 2, playerColor);
+                        Objects.addObject(bombX, bombY+4, 5, 2, bombColor);
                     }
                     else if(bombRange > 4 && bombY < 8)
                     {
@@ -263,7 +263,7 @@ public class Map
                         {
                             fifthBottomLine = fifthBottomLine.substring(0, bombX) + '1' + fifthBottomLine.substring(bombX+1);
                             lineList.set(bombY+5, fifthBottomLine);
-                            Objects.addObject(bombX, bombY+5, 5, 2, playerColor);
+                            Objects.addObject(bombX, bombY+5, 5, 2, bombColor);
                         }
                         else if(bombRange > 5 && bombY < 7)
                         {
@@ -273,30 +273,30 @@ public class Map
                             {
                                 sixthBottomLine = sixthBottomLine.substring(0, bombX) + '1' + sixthBottomLine.substring(bombX+1);
                                 lineList.set(bombY+6, sixthBottomLine);
-                                Objects.addObject(bombX, bombY+6, 5, 2, playerColor);
+                                Objects.addObject(bombX, bombY+6, 5, 2, bombColor);
                             }
                         }
                     }
                 }
             }
         }
-        generateSmoke(bombX, bombY, bombRange, playerColor);
+        generateSmoke(bombX, bombY, bombRange, bombColor);
     }
 
-    public static void generateSmoke(int bombX, int bombY, int bombRange, int playerColor)
+    public static void generateSmoke(int bombX, int bombY, int bombRange, int bombColor)
     {
 
         String midTopLine = lineList.get(bombY-1);
         String midLine = lineList.get(bombY);
         String midBottomLine = lineList.get(bombY+1);
 
-        Objects.addObject(bombX, bombY, 4, 0, playerColor);
+        Objects.addObject(bombX, bombY, 4, 0, bombColor);
 
         //hotizontalGenerator
 
         if (midLine.charAt(bombX-1) == '1')
         {
-            Objects.addObject(bombX-1, bombY, 4, 1, playerColor);
+            Objects.addObject(bombX-1, bombY, 4, 1, bombColor);
 
             if(Objects.getObject(bombX-1, bombY) == 5)
             {
@@ -305,7 +305,7 @@ public class Map
             else if(bombRange > 1 && midLine.charAt(bombX-2) == '1')
             {
 
-                Objects.addObject(bombX-2, bombY, 4, 1, playerColor);
+                Objects.addObject(bombX-2, bombY, 4, 1, bombColor);
 
                 if(Objects.getObject(bombX-2, bombY) == 5)
                 {
@@ -313,7 +313,7 @@ public class Map
                 }
                 else if(bombRange > 2 && midLine.charAt(bombX-3) == '1')
                 {
-                    Objects.addObject(bombX-3, bombY, 4, 1, playerColor);
+                    Objects.addObject(bombX-3, bombY, 4, 1, bombColor);
 
                     if(Objects.getObject(bombX-3, bombY) == 5)
                     {
@@ -321,7 +321,7 @@ public class Map
                     }
                     else if(bombRange > 3 && midLine.charAt(bombX-4) == '1')
                     {
-                        Objects.addObject(bombX-4, bombY, 4, 1, playerColor);
+                        Objects.addObject(bombX-4, bombY, 4, 1, bombColor);
 
                         if(Objects.getObject(bombX-4, bombY) == 5)
                         {
@@ -329,7 +329,7 @@ public class Map
                         }
                         else if(bombRange > 4 && midLine.charAt(bombX-5) == '1')
                         {
-                            Objects.addObject(bombX-5, bombY, 4, 1, playerColor);
+                            Objects.addObject(bombX-5, bombY, 4, 1, bombColor);
 
                             if(Objects.getObject(bombX-5, bombY) == 5)
                             {
@@ -337,7 +337,7 @@ public class Map
                             }
                             else if(bombRange > 5 && midLine.charAt(bombX-6) == '1')
                             {
-                                Objects.addObject(bombX-6, bombY, 4, 1, playerColor);
+                                Objects.addObject(bombX-6, bombY, 4, 1, bombColor);
                             }
                         }
                     }
@@ -347,7 +347,7 @@ public class Map
 
         if(midLine.charAt(bombX+1) == '1')
         {
-            Objects.addObject(bombX+1, bombY, 4, 1, playerColor);
+            Objects.addObject(bombX+1, bombY, 4, 1, bombColor);
 
             if(Objects.getObject(bombX+1, bombY) == 5)
             {
@@ -355,7 +355,7 @@ public class Map
             }
             else if(bombRange > 1 && midLine.charAt(bombX+2) == '1')
             {
-                Objects.addObject(bombX+2, bombY, 4, 1, playerColor);
+                Objects.addObject(bombX+2, bombY, 4, 1, bombColor);
 
                 if(Objects.getObject(bombX+2, bombY) == 5)
                 {
@@ -363,7 +363,7 @@ public class Map
                 }
                 else if(bombRange > 2 && midLine.charAt(bombX+3) == '1')
                 {
-                    Objects.addObject(bombX+3, bombY, 4, 1, playerColor);
+                    Objects.addObject(bombX+3, bombY, 4, 1, bombColor);
 
                     if(Objects.getObject(bombX+3, bombY) == 5)
                     {
@@ -371,7 +371,7 @@ public class Map
                     }
                     else if(bombRange > 3 && midLine.charAt(bombX+4) == '1')
                     {
-                        Objects.addObject(bombX+4, bombY, 4, 1, playerColor);
+                        Objects.addObject(bombX+4, bombY, 4, 1, bombColor);
 
                         if(Objects.getObject(bombX+4, bombY) == 5)
                         {
@@ -379,7 +379,7 @@ public class Map
                         }
                         else if(bombRange > 4 && midLine.charAt(bombX+5) == '1')
                         {
-                            Objects.addObject(bombX+5, bombY, 4, 1, playerColor);
+                            Objects.addObject(bombX+5, bombY, 4, 1, bombColor);
 
                             if(Objects.getObject(bombX+5, bombY) == 5)
                             {
@@ -387,7 +387,7 @@ public class Map
                             }
                             else if(bombRange > 5 && midLine.charAt(bombX+6) == '1')
                             {
-                                Objects.addObject(bombX+6, bombY, 4, 1, playerColor);
+                                Objects.addObject(bombX+6, bombY, 4, 1, bombColor);
                             }
                         }
                     }
@@ -399,7 +399,7 @@ public class Map
 
         if (midTopLine.charAt(bombX) == '1')
         {
-            Objects.addObject(bombX, bombY-1, 4, 2, playerColor);
+            Objects.addObject(bombX, bombY-1, 4, 2, bombColor);
 
             if(bombY > 1 && bombRange > 1)
             {
@@ -411,7 +411,7 @@ public class Map
                 }
                 else if(topLine.charAt(bombX) == '1')
                 {
-                    Objects.addObject(bombX, bombY-2, 4, 2, playerColor);
+                    Objects.addObject(bombX, bombY-2, 4, 2, bombColor);
 
                     if(bombY > 2 && bombRange > 2)
                     {
@@ -423,7 +423,7 @@ public class Map
                         }
                         else if(thirdTopline.charAt(bombX) == '1')
                         {
-                            Objects.addObject(bombX, bombY-3, 4, 2, playerColor);
+                            Objects.addObject(bombX, bombY-3, 4, 2, bombColor);
 
                             if(bombY > 3 && bombRange > 3)
                             {
@@ -435,7 +435,7 @@ public class Map
                                 }
                                 else if(fourthTopLine.charAt(bombX) == '1')
                                 {
-                                    Objects.addObject(bombX, bombY-4, 4, 2, playerColor);
+                                    Objects.addObject(bombX, bombY-4, 4, 2, bombColor);
 
                                     if(bombY > 4 && bombRange > 4)
                                     {
@@ -447,7 +447,7 @@ public class Map
                                         }
                                         else if(fifthTopLine.charAt(bombX) == '1')
                                         {
-                                            Objects.addObject(bombX, bombY-5, 4, 2, playerColor);
+                                            Objects.addObject(bombX, bombY-5, 4, 2, bombColor);
 
                                             if(bombY > 5 && bombRange > 5)
                                             {
@@ -459,7 +459,7 @@ public class Map
                                                 }
                                                 else if(sixthTopLine.charAt(bombX) == '1')
                                                 {
-                                                    Objects.addObject(bombX, bombY-6, 4, 2, playerColor);
+                                                    Objects.addObject(bombX, bombY-6, 4, 2, bombColor);
                                                 }
                                             }
                                         }
@@ -474,7 +474,7 @@ public class Map
 
         if (midBottomLine.charAt(bombX) == '1')
         {
-            Objects.addObject(bombX, bombY+1, 4, 2, playerColor);
+            Objects.addObject(bombX, bombY+1, 4, 2, bombColor);
 
             if(bombY < 11 && bombRange > 1)
             {
@@ -486,7 +486,7 @@ public class Map
                 }
                 else if(bottomLine.charAt(bombX) == '1')
                 {
-                    Objects.addObject(bombX, bombY+2, 4, 2, playerColor);
+                    Objects.addObject(bombX, bombY+2, 4, 2, bombColor);
 
                     if(bombY < 10 && bombRange > 2)
                     {
@@ -498,7 +498,7 @@ public class Map
                         }
                         else if(thirdBottomline.charAt(bombX) == '1')
                         {
-                            Objects.addObject(bombX, bombY+3, 4, 2, playerColor);
+                            Objects.addObject(bombX, bombY+3, 4, 2, bombColor);
 
                             if(bombY < 9 && bombRange > 3)
                             {
@@ -510,7 +510,7 @@ public class Map
                                 }
                                 else if(fourthBottomLine.charAt(bombX) == '1')
                                 {
-                                    Objects.addObject(bombX, bombY+4, 4, 2, playerColor);
+                                    Objects.addObject(bombX, bombY+4, 4, 2, bombColor);
 
                                     if(bombY < 8 && bombRange > 4)
                                     {
@@ -522,7 +522,7 @@ public class Map
                                         }
                                         else if(fifthBottomLine.charAt(bombX) == '1')
                                         {
-                                            Objects.addObject(bombX, bombY+5, 4, 2, playerColor);
+                                            Objects.addObject(bombX, bombY+5, 4, 2, bombColor);
 
                                             if(bombY < 7 && bombRange > 5)
                                             {
@@ -534,7 +534,7 @@ public class Map
                                                 }
                                                 else if(sixthBottomLine.charAt(bombX) == '1')
                                                 {
-                                                    Objects.addObject(bombX, bombY+6, 4, 2, playerColor);
+                                                    Objects.addObject(bombX, bombY+6, 4, 2, bombColor);
                                                 }
                                             }
                                         }

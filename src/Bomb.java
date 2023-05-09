@@ -8,6 +8,7 @@ public class Bomb
 
     boolean state;
     int id;
+    int color;
     
     static int litTime = 2000;
     long explosionTimer;
@@ -35,6 +36,7 @@ public class Bomb
     Bomb(int color, int id)
     {
         this.id = id;
+        this.color = color;
     }
 
     static void prepareBomb(Bomb bomb1, Bomb bomb2, Bomb bomb3, Bomb bomb4, Bomb bomb5, Bomb bomb6, Player player, int[] activeBombsX, int[] activeBombsY)
@@ -97,19 +99,18 @@ public class Bomb
     {
         if(state == true && System.currentTimeMillis() > explosionTimer)
         {
-            explodeBomb(activeBombsX, activeBombsY, player.bombRange, player.color);
+            explodeBomb(activeBombsX, activeBombsY, player.bombRange);
             myObjects.checkPlayersForObjects();
             player.collisionInfo = myMap.getCollisionInfo(player);
         }
     }
 
-    void explodeBomb(int activeBombsX[], int activeBombsY[], int bombRange, int playerColor)
+    void explodeBomb(int activeBombsX[], int activeBombsY[], int bombRange)
     {
         this.state = false;
-        Map.destroyWalls(this.bombX, this.bombY, bombRange, playerColor);
+        Map.destroyWalls(this.bombX, this.bombY, bombRange, this.color);
         activeBombsX[this.id] = 10000 + id;
         activeBombsY[this.id] = 10000 + id;
-        System.out.println(playerColor);
     }
 
     static boolean bombChecker(Player player, int[] activeBombsX, int[] activeBombsY)
