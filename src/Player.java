@@ -10,7 +10,7 @@ public class Player
     int Xspeed, Yspeed;
     int color;
     int number;
-    int currentSpeed = 3;
+    int currentSpeed = 2;
     int bombRange = 1;
     int bombCount = 1;
     int health = 3;
@@ -62,7 +62,7 @@ public class Player
 
     void increaseSpeed()
     {
-        if(this.currentSpeed < 3)
+        if(this.currentSpeed < 4)
         {
             this.currentSpeed++;
         }
@@ -70,7 +70,7 @@ public class Player
 
     void increaseBombRange()
     {
-        if(this.bombRange < 4)
+        if(this.bombRange < 3)
         {
             this.bombRange++;
         }
@@ -78,7 +78,7 @@ public class Player
 
     void increaseBombCount()
     {
-        if(this.bombCount < 4)
+        if(this.bombCount < 3)
         {
             this.bombCount++;
         }

@@ -2,8 +2,8 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-public class Objects {
-
+public class Objects
+{
     Player[] allPlayers;
     
     static int[][] objectDirection = new int[15][13];
@@ -12,9 +12,9 @@ public class Objects {
     static long[][] objectTimer = new long[15][13];
     static long smokeTime = 1200;
 
-    static Image countImage = new ImageIcon("textures//countPowerup.png").getImage();
-    static Image rangeImage = new ImageIcon("textures//rangePowerup.png").getImage();
-    static Image bootImage = new ImageIcon("textures//bootPowerup.png").getImage();
+    static Image countImage = new ImageIcon("textures//whiteCountPowerup.png").getImage();
+    static Image rangeImage = new ImageIcon("textures//whiteRangePowerup.png").getImage();
+    static Image bootImage = new ImageIcon("textures//whiteSpeedPowerup.png").getImage();
 
     static Image purpleStill = new ImageIcon("textures//purpleSmokeStill.png").getImage();
     static Image purpleHorizontal = new ImageIcon("textures//purpleSmokeHorizontal.png").getImage();
