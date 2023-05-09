@@ -8,6 +8,7 @@ public class Objects {
     
     static int[][] objectDirection = new int[15][13];
     static int[][] objectLocation = new int[15][13];
+    static int[][] objectColor = new int[15][13];
     static long[][] objectTimer = new long[15][13];
     static long smokeTime = 1200;
 
@@ -16,12 +17,17 @@ public class Objects {
     static Image bootImage = new ImageIcon("textures//bootPowerup.png").getImage();
 
     static Image purpleStill = new ImageIcon("textures//purpleSmokeStill.png").getImage();
-    static Image purpleLeft = new ImageIcon("textures//purpleSmokeLeft.png").getImage();
-    static Image purpleRight = new ImageIcon("textures//purpleSmokeRight.png").getImage();
-    static Image purpleUp = new ImageIcon("textures//purpleSmokeTop.png").getImage();
-    static Image purpleDown = new ImageIcon("textures//purpleSmokeDown.png").getImage();
+    static Image purpleHorizontal = new ImageIcon("textures//purpleSmokeHorizontal.png").getImage();
+    static Image purpleVertical = new ImageIcon("textures//purpleSmokeVertical.png").getImage();
 
-    static Image[] purpleSmokes = {purpleStill, purpleLeft, purpleRight, purpleUp, purpleDown};
+    static Image orangeStill = new ImageIcon("textures//orangeSmokeStill.png").getImage();
+    static Image orangeHorizontal = new ImageIcon("textures//orangeSmokeHorizontal.png").getImage();
+    static Image orangeVertical = new ImageIcon("textures//orangeSmokeVertical.png").getImage();
+
+    static Image[] orangeSmokes = {orangeStill, orangeHorizontal, orangeVertical};
+    static Image[] purpleSmokes = {purpleStill, purpleHorizontal, purpleVertical};
+
+    static Image[][] allSmokes = {orangeSmokes, purpleSmokes};
 
     Objects(Player[] allPlayers)
     {
@@ -44,12 +50,13 @@ public class Objects {
         }
     }
 
-    public static void addObject(int objX, int objY, int objectNumber, int direction)
+    public static void addObject(int objX, int objY, int objectNumber, int direction, int playerColor)
     {
         if(objectLocation[objX][objY] != 5)
         {
             objectLocation[objX][objY] = objectNumber;
             objectDirection[objX][objY] = direction;
+            objectColor[objX][objY] = playerColor;
         }
     }
 
@@ -118,7 +125,7 @@ public class Objects {
                 {
                     if(System.currentTimeMillis() < objectTimer[i][j])
                     {
-                        g2.drawImage(purpleSmokes[objectDirection[i][j]], Map.getTrueXY(i), Map.getTrueXY(j), GamePanel.blockSize, GamePanel.blockSize, null);
+                        g2.drawImage(allSmokes[objectColor[i][j]][objectDirection[i][j]], Map.getTrueXY(i), Map.getTrueXY(j), GamePanel.blockSize, GamePanel.blockSize, null);
                     }
                     else
                     {

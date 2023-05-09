@@ -18,19 +18,18 @@ public class GamePanel extends JPanel
     int[] activeBombsX = new int[12];
     int[] activeBombsY = new int[12];
 
-    Bomb bomb1[];
-    Bomb bomb2[];
-    Player player[];
+    Bomb allBombs[][];
+    Player allPlayers[];
 
-    public GamePanel(Player player[], Bomb bomb1[], Objects myObjects , Map myMap, Keybindings myBinds)
+    public GamePanel(Player allPlayers[], Bomb allBombs[][], Objects myObjects , Map myMap, Keybindings myBinds)
     {
         this.setBounds(0, 0, panelWidth, panelHeight);
         this.setBackground(Color.GREEN);
         this.setVisible(true);
         this.setFocusable(true);
         this.addKeyListener(myBinds);
-        this.player = player;
-        this.bomb1 = bomb1;
+        this.allPlayers = allPlayers;
+        this.allBombs = allBombs;
         this.myObjects = myObjects;
         this.myMap = myMap;
         this.myBinds = myBinds;
@@ -39,17 +38,24 @@ public class GamePanel extends JPanel
     public void update()
     {
         //System.out.println(myBinds.binds1[2]);
-        for(int i = 0; i < 2; i++)
+        for(int i = 0; i < allPlayers.length; i++)
         {
-            player[i].movePlayer(myMap);
-            player[i].placeBomb(bomb1, activeBombsX, activeBombsY);
+            allPlayers[i].movePlayer(myMap);
+            allPlayers[i].placeBomb(allBombs[i], activeBombsX, activeBombsY);
         }
-        bomb1[0].checkToRemove(player[0], activeBombsX, activeBombsY, myObjects, myMap);
-        bomb1[1].checkToRemove(player[0], activeBombsX, activeBombsY, myObjects, myMap);
-        bomb1[2].checkToRemove(player[0], activeBombsX, activeBombsY, myObjects, myMap);
-        bomb1[3].checkToRemove(player[0], activeBombsX, activeBombsY, myObjects, myMap);
-        bomb1[4].checkToRemove(player[0], activeBombsX, activeBombsY, myObjects, myMap);
-        bomb1[5].checkToRemove(player[0], activeBombsX, activeBombsY, myObjects, myMap);
+        allBombs[0][0].checkToRemove(allPlayers[0], activeBombsX, activeBombsY, myObjects, myMap);
+        allBombs[0][1].checkToRemove(allPlayers[0], activeBombsX, activeBombsY, myObjects, myMap);
+        allBombs[0][2].checkToRemove(allPlayers[0], activeBombsX, activeBombsY, myObjects, myMap);
+        allBombs[0][3].checkToRemove(allPlayers[0], activeBombsX, activeBombsY, myObjects, myMap);
+        allBombs[0][4].checkToRemove(allPlayers[0], activeBombsX, activeBombsY, myObjects, myMap);
+        allBombs[0][5].checkToRemove(allPlayers[0], activeBombsX, activeBombsY, myObjects, myMap);
+
+        allBombs[1][0].checkToRemove(allPlayers[1], activeBombsX, activeBombsY, myObjects, myMap);
+        allBombs[1][1].checkToRemove(allPlayers[1], activeBombsX, activeBombsY, myObjects, myMap);
+        allBombs[1][2].checkToRemove(allPlayers[1], activeBombsX, activeBombsY, myObjects, myMap);
+        allBombs[1][3].checkToRemove(allPlayers[1], activeBombsX, activeBombsY, myObjects, myMap);
+        allBombs[1][4].checkToRemove(allPlayers[1], activeBombsX, activeBombsY, myObjects, myMap);
+        allBombs[1][5].checkToRemove(allPlayers[1], activeBombsX, activeBombsY, myObjects, myMap);
     }
 
     public void paintComponent(Graphics g)
@@ -62,15 +68,22 @@ public class GamePanel extends JPanel
         Objects.drawObject(g2);
 
         Graphics2D g3 = (Graphics2D)g;
-        bomb1[0].drawBomb(g3);
-        bomb1[1].drawBomb(g3);
-        bomb1[2].drawBomb(g3);
-        bomb1[3].drawBomb(g3);
-        bomb1[4].drawBomb(g3);
-        bomb1[5].drawBomb(g3);
+        allBombs[0][0].drawBomb(g3);
+        allBombs[0][1].drawBomb(g3);
+        allBombs[0][2].drawBomb(g3);
+        allBombs[0][3].drawBomb(g3);
+        allBombs[0][4].drawBomb(g3);
+        allBombs[0][5].drawBomb(g3);
+
+        allBombs[1][0].drawBomb(g3);
+        allBombs[1][1].drawBomb(g3);
+        allBombs[1][2].drawBomb(g3);
+        allBombs[1][3].drawBomb(g3);
+        allBombs[1][4].drawBomb(g3);
+        allBombs[1][5].drawBomb(g3);
 
         Graphics2D g9 = (Graphics2D)g;
-        player[0].drawPlayer(g9);
-        player[1].drawPlayer(g9);
+        allPlayers[0].drawPlayer(g9);
+        allPlayers[1].drawPlayer(g9);
     }
 }

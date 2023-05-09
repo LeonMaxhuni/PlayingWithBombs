@@ -31,7 +31,18 @@ public class Main extends JFrame
         Bomb bomb4 = new Bomb(player1.color, 3);
         Bomb bomb5 = new Bomb(player1.color, 4);
         Bomb bomb6 = new Bomb(player1.color, 5);
+
+        Bomb bomb7 = new Bomb(player2.color, 0);
+        Bomb bomb8 = new Bomb(player2.color, 1);
+        Bomb bomb9 = new Bomb(player2.color, 2);
+        Bomb bomb10 = new Bomb(player2.color, 3);
+        Bomb bomb11 = new Bomb(player2.color, 4);
+        Bomb bomb12 = new Bomb(player2.color, 5);
+
         Bomb player1Bombs[] = {bomb1, bomb2, bomb3, bomb4, bomb5, bomb6};
+        Bomb player2Bombs[] = {bomb7, bomb8, bomb9, bomb10, bomb11, bomb12};
+
+        Bomb allBombs[][] = {player1Bombs, player2Bombs};
 
         Objects myObjects = new Objects(allPlayers);
 
@@ -126,7 +137,7 @@ public class Main extends JFrame
 
         Labels allPlayersPowerLabels[][][] = {player1Labels, player2Labels, player3Labels, player4Labels};
 
-        GamePanel gamePanel = new GamePanel(allPlayers, player1Bombs, myObjects ,myMap, myBinds);
+        GamePanel gamePanel = new GamePanel(allPlayers, allBombs, myObjects, myMap, myBinds);
         ScorePanel scorePanel = new ScorePanel(allPlayers, player1Bombs, allPlayersPowerLabels);
 
         MainPanel mainPanel = new MainPanel(gamePanel, scorePanel, allPlayers, player1Bombs);

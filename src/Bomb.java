@@ -93,22 +93,23 @@ public class Bomb
         this.state = true;
     }
 
-    void explodeBomb(int activeBombsX[], int activeBombsY[], int bombRange)
-    {
-        this.state = false;
-        Map.destroyWalls(this.bombX, this.bombY, bombRange);
-        activeBombsX[this.id] = 10000 + id;
-        activeBombsY[this.id] = 10000 + id;
-    }
-
     void checkToRemove(Player player, int[] activeBombsX, int[] activeBombsY, Objects myObjects, Map myMap)
     {
         if(state == true && System.currentTimeMillis() > explosionTimer)
         {
-            explodeBomb(activeBombsX, activeBombsY, player.bombRange);
+            explodeBomb(activeBombsX, activeBombsY, player.bombRange, player.color);
             myObjects.checkPlayersForObjects();
             player.collisionInfo = myMap.getCollisionInfo(player);
         }
+    }
+
+    void explodeBomb(int activeBombsX[], int activeBombsY[], int bombRange, int playerColor)
+    {
+        this.state = false;
+        Map.destroyWalls(this.bombX, this.bombY, bombRange, playerColor);
+        activeBombsX[this.id] = 10000 + id;
+        activeBombsY[this.id] = 10000 + id;
+        System.out.println(playerColor);
     }
 
     static boolean bombChecker(Player player, int[] activeBombsX, int[] activeBombsY)
