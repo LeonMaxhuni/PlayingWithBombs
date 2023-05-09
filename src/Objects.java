@@ -6,6 +6,7 @@ public class Objects {
 
     Player[] allPlayers;
     
+    static int[][] objectDirection = new int[15][13];
     static int[][] objectLocation = new int[15][13];
     static long[][] objectTimer = new long[15][13];
     static long smokeTime = 1200;
@@ -13,7 +14,14 @@ public class Objects {
     static Image countImage = new ImageIcon("textures//countPowerup.png").getImage();
     static Image rangeImage = new ImageIcon("textures//rangePowerup.png").getImage();
     static Image bootImage = new ImageIcon("textures//bootPowerup.png").getImage();
-    static Image image5 = new ImageIcon("textures//temp2.png").getImage();
+
+    static Image purpleStill = new ImageIcon("textures//purpleSmokeStill.png").getImage();
+    static Image purpleLeft = new ImageIcon("textures//purpleSmokeLeft.png").getImage();
+    static Image purpleRight = new ImageIcon("textures//purpleSmokeRight.png").getImage();
+    static Image purpleUp = new ImageIcon("textures//purpleSmokeTop.png").getImage();
+    static Image purpleDown = new ImageIcon("textures//purpleSmokeDown.png").getImage();
+
+    static Image[] purpleSmokes = {purpleStill, purpleLeft, purpleRight, purpleUp, purpleDown};
 
     Objects(Player[] allPlayers)
     {
@@ -33,6 +41,15 @@ public class Objects {
         if(objectLocation[objX][objY] != 5)
         {
             objectLocation[objX][objY] = objectNumber;
+        }
+    }
+
+    public static void addObject(int objX, int objY, int objectNumber, int direction)
+    {
+        if(objectLocation[objX][objY] != 5)
+        {
+            objectLocation[objX][objY] = objectNumber;
+            objectDirection[objX][objY] = direction;
         }
     }
 
@@ -101,7 +118,7 @@ public class Objects {
                 {
                     if(System.currentTimeMillis() < objectTimer[i][j])
                     {
-                        g2.drawImage(image5, Map.getTrueXY(i), Map.getTrueXY(j), GamePanel.blockSize, GamePanel.blockSize, null);
+                        g2.drawImage(purpleSmokes[objectDirection[i][j]], Map.getTrueXY(i), Map.getTrueXY(j), GamePanel.blockSize, GamePanel.blockSize, null);
                     }
                     else
                     {
