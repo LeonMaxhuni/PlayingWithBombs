@@ -1,8 +1,6 @@
 import java.awt.Graphics2D;
 import java.awt.Image;
 
-import javax.swing.ImageIcon;
-
 public class Labels
 {
     int x, y;
@@ -12,17 +10,6 @@ public class Labels
 
     //Image countImage = new ImageIcon("textures//bombBlue.png").getImage();
     //Image count2Image = new ImageIcon("textures//bombPurple.png").getImage();
-
-    Image unusedCount = new ImageIcon("textures//unusedBomb.png").getImage();
-    Image unusedRange = new ImageIcon("textures//unusedRange.png").getImage();
-    Image unusedSpeed = new ImageIcon("textures//unusedBoot.png").getImage();
-
-    Image usedCount = new ImageIcon("textures//countPowerup.png").getImage();
-    Image usedRange = new ImageIcon("textures//rangePowerup.png").getImage();
-    Image usedSpeed = new ImageIcon("textures//bootPowerup.png").getImage();
-
-    Image unusedTypes[] = {unusedCount, unusedRange, unusedSpeed};
-    Image usedTypes[] = {usedCount, usedRange, usedSpeed};
 
     public Labels(int x, int y, int width, int height, int count, int type)
     {
@@ -34,16 +21,16 @@ public class Labels
         this.count = count;
     }
 
-    public void drawPowerups(Graphics2D g2, int condition, boolean alive)
+    public void drawPowerups(Graphics2D g2, int condition, boolean alive, Image image, Image image2)
     {
         if(count <= condition && alive == true)
-        g2.drawImage(usedTypes[type], x, y, width, height, null);
+        g2.drawImage(image, x, y, width, height, null);
         else
-        drawPowerups(g2);
+        drawPowerups(g2, image2);
     }
 
-    public void drawPowerups(Graphics2D g2)
+    public void drawPowerups(Graphics2D g2, Image image)
     {
-        g2.drawImage(unusedTypes[type], x, y, width, height, null);
+        g2.drawImage(image, x, y, width, height, null);
     }
 }
