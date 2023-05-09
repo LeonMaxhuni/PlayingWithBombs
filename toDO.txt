@@ -3,4 +3,4 @@
 3. Labels draw
 4. Player draw colors
 5. Scoring and health system
-6. Add music
+6. Add music and sounds
