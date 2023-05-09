@@ -13,7 +13,7 @@ public class Objects {
     static Image countImage = new ImageIcon("textures//countPowerup.png").getImage();
     static Image rangeImage = new ImageIcon("textures//rangePowerup.png").getImage();
     static Image bootImage = new ImageIcon("textures//bootPowerup.png").getImage();
-    static Image image5 = new ImageIcon("textures//temp.png").getImage();
+    static Image image5 = new ImageIcon("textures//temp2.png").getImage();
 
     Objects(Player[] allPlayers)
     {
