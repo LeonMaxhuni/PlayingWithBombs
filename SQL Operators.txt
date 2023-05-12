@@ -1,0 +1,37 @@
+SELECT - read
+DISTINCT - different not same
+COUNT - counts the records
+WHERE - keyword to condition to filter records
+BETWEEN - condition to filter a certain range { WHERE Price BETWEEN 50 AND 100; }
+LIKE - condition to search a pattern { WHERE City LIKE 'letter%'; }
+IN - condition for more wheres { WHERE City IN ('London', 'Berlin'); }
+AND - &&
+OR - ||
+NOT - !condition
+ORDER BY - orders records
+INSERT INTO - add a record into a table
+VALUES - values off record to add into table
+IS NULL - condition to check for null values
+IS NOT NULL - condition to check for null values
+UPDATE - select a table to update
+SET - change a records of a field to specific value
+DELETE - remove a record
+SELECT TOP or LIMIT - select a specific amount of records
+PERCENT - { select top x percect }
+AS - changes the name of field
+SELECT MIN(column) or MAX(column) - function to find min or max record from a field
+COUNT() - returns count
+AVG() - function that return the avearage
+SUM() - function for sum
+
+Like Operators
+{
+	WHERE CustomerName LIKE 'a%'	Finds any values that start with "a"
+	WHERE CustomerName LIKE '%a'	Finds any values that end with "a"
+	WHERE CustomerName LIKE '%or%'	Finds any values that have "or" in any position
+	WHERE CustomerName LIKE '_r%'	Finds any values that have "r" in the second position
+	WHERE CustomerName LIKE 'a_%'	Finds any values that start with "a" and are at least 2 characters in length
+	WHERE CustomerName LIKE 'a__%'	Finds any values that start with "a" and are at least 3 characters in length
+	WHERE ContactName LIKE 'a%o'	Finds any values that start with "a" and ends with "o"
+}
+
