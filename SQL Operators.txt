@@ -35,3 +35,5 @@ Like Operators
 	WHERE ContactName LIKE 'a%o'	Finds any values that start with "a" and ends with "o"
 }
 
+
+
